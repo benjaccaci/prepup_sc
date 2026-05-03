@@ -1,0 +1,32 @@
+---
+interface CTA {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  headline: string;
+  primaryCTA: CTA;
+  secondaryCTA?: CTA;
+}
+
+const { headline, primaryCTA, secondaryCTA } = Astro.props;
+---
+
+<section class="bg-navy text-white py-16 md:py-20 px-6">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="font-serif text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-snug">
+      {headline}
+    </h2>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href={primaryCTA.href} class="btn-primary text-base px-8 py-3.5">
+        {primaryCTA.label}
+      </a>
+      {secondaryCTA && (
+        <a href={secondaryCTA.href} class="btn-secondary-outline text-base px-8 py-3.5">
+          {secondaryCTA.label}
+        </a>
+      )}
+    </div>
+  </div>
+</section>

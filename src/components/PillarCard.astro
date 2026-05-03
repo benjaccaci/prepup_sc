@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  number: number;
+}
+
+const { title, description, number } = Astro.props;
+---
+
+<div class="card flex flex-col gap-4">
+  <div class="flex items-start gap-4">
+    <div class="shrink-0 w-11 h-11 rounded-xl bg-navy flex items-center justify-center">
+      <span class="font-serif font-bold text-gold text-lg">{number}</span>
+    </div>
+    <div>
+      <h3 class="font-serif text-xl font-semibold text-navy mb-2">{title}</h3>
+      <p class="text-navy-dark/70 text-sm leading-relaxed">{description}</p>
+    </div>
+  </div>
+</div>

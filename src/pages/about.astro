@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ValueCard from '../components/ValueCard.astro';
+import FounderCard from '../components/FounderCard.astro';
+import CTAStrip from '../components/CTAStrip.astro';
+---
+
+<BaseLayout
+  title="About Prep Up"
+  description="Learn about Prep Up Southcoast's mission, values, and the founders behind our college counseling program for New Bedford students."
+>
+
+  <!-- Page header -->
+  <header class="bg-navy text-white py-16 md:py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-xs font-semibold text-gold tracking-widest uppercase mb-3">Who We Are</p>
+      <h1 class="font-serif text-4xl md:text-5xl font-bold leading-tight">About Prep Up</h1>
+    </div>
+  </header>
+
+  <!-- Mission section -->
+  <section class="py-16 md:py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-xs font-semibold text-gold-dark tracking-widest uppercase mb-3">Our Mission</p>
+      <h2 class="section-heading mb-6">Closing the Guidance Gap</h2>
+      <div class="prose-like space-y-4 text-navy-dark/75 leading-relaxed text-base md:text-lg max-w-3xl">
+        <p>
+          Prep Up offers a high-touch, cohort-based college advisory program designed to close any
+          &ldquo;guidance gap.&rdquo; By adapting the college counseling models of top independent
+          schools for a community-based setting, we provide a scalable, multi-year architecture that
+          can be tailored to meet students&rsquo; needs and transform their potential into collegiate
+          success.
+        </p>
+        <p>
+          Our approach is process-driven and developmentally grounded &mdash; meeting students where
+          they are in 9th grade and walking alongside them through every step to enrollment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gold divider -->
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="h-px bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+  </div>
+
+  <!-- Values section -->
+  <section class="py-16 md:py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-12">
+        <p class="text-xs font-semibold text-gold-dark tracking-widest uppercase mb-3">What We Stand For</p>
+        <h2 class="section-heading">Our Values</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <ValueCard
+          icon="equity"
+          title="Equity"
+          description="A commitment to access and transparency. Every student deserves the same quality of guidance regardless of background or resources."
+        />
+        <ValueCard
+          icon="partnership"
+          title="Partnership"
+          description="A collaborative, process-driven method of support. We work alongside students and families, not just for them."
+        />
+        <ValueCard
+          icon="aspiration"
+          title="Aspiration"
+          description="Setting the bar high for every student's future. We believe in possibilities, not just probabilities."
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Founders section -->
+  <section class="bg-gray-50 py-16 md:py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-12">
+        <p class="text-xs font-semibold text-gold-dark tracking-widest uppercase mb-3">The Team</p>
+        <h2 class="section-heading">Our Founders</h2>
+        <p class="page-subtitle mt-3">
+          Prep Up was founded by two educators who spent decades giving students at elite independent schools something that should be available to everyone.
+        </p>
+      </div>
+
+      <div class="space-y-14">
+        <FounderCard
+          name="Stuart Titus"
+          initials="ST"
+          bio="Stuart has worked for over three decades at independent schools in the Northeast. He was the Director of College Counseling at Mercersburg Academy in Pennsylvania, and a counselor at Tabor Academy in MA and San Francisco University High School in CA. Stuart, who was a three-year letter winner on the football team at Bates College, was also a College Counselor, English teacher, football and tennis coach, and dorm parent at St. George's School in RI."
+        />
+        <div class="h-px bg-gray-200"></div>
+        <FounderCard
+          name="Lucia Jaccaci"
+          initials="LJ"
+          reversed={true}
+          bio="Lucia is an educator with 30 years of experience in independent school education. She has worked both as a classroom teacher and an administrator in the United States and in China. She taught history at St. George's School in RI and Cincinnati Country Day School in OH. While at YK Pao School in Shanghai she helped develop the college counseling program. Upon moving to the Southcoast, Lucia taught citizenship classes at the Immigrant Assistance Center in New Bedford, and is currently volunteering at Our Sister's School and Damien's Food Pantry."
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTAStrip
+    headline="Want to learn more about what Prep Up can do for your student?"
+    primaryCTA={{ label: 'Contact Us', href: '/contact' }}
+    secondaryCTA={{ label: 'Support Our Mission', href: '/support' }}
+  />
+
+</BaseLayout>

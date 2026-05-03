@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-navy-dark bg-white antialiased;
+  }
+}
+
+@layer components {
+  /* Buttons */
+  .btn-primary {
+    @apply inline-block bg-gold text-navy-dark font-semibold px-6 py-3 rounded-xl hover:bg-gold-dark transition-colors duration-200 text-center;
+  }
+
+  .btn-secondary-outline {
+    @apply inline-block bg-transparent text-white font-semibold px-6 py-3 rounded-xl border-2 border-white hover:bg-white hover:text-navy transition-colors duration-200 text-center;
+  }
+
+  .btn-navy {
+    @apply inline-block bg-navy text-white font-semibold px-6 py-3 rounded-xl hover:bg-navy-dark transition-colors duration-200 text-center;
+  }
+
+  .btn-navy-outline {
+    @apply inline-block bg-transparent text-navy font-semibold px-6 py-3 rounded-xl border-2 border-navy hover:bg-navy hover:text-white transition-colors duration-200 text-center;
+  }
+
+  /* Layout */
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-wide {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Typography */
+  .section-heading {
+    @apply font-serif text-3xl md:text-4xl font-bold text-navy;
+  }
+
+  .page-subtitle {
+    @apply text-lg text-navy-dark/70 leading-relaxed max-w-2xl;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-md transition-shadow duration-200;
+  }
+}

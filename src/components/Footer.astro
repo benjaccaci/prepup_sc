@@ -1,0 +1,75 @@
+---
+const year = new Date().getFullYear();
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/program', label: 'Our Program' },
+  { href: '/support', label: 'Support Us' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<footer class="bg-navy text-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+
+      <!-- Brand column -->
+      <div>
+        <a href="/" class="flex items-center gap-3 mb-4" aria-label="Prep Up Southcoast">
+          <img src="/logo-badge.svg" alt="Prep Up badge" class="h-14 w-14" />
+          <div>
+            <p class="font-serif font-bold text-lg text-white leading-tight">Prep Up</p>
+            <p class="text-xs text-white/60 tracking-widest uppercase mt-0.5">College Access for All</p>
+          </div>
+        </a>
+        <address class="not-italic text-white/60 text-sm leading-relaxed">
+          1265 Purchase Street<br />
+          New Bedford, MA 02740
+        </address>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <h3 class="text-gold font-semibold text-sm tracking-wide uppercase mb-4">Quick Links</h3>
+        <nav aria-label="Footer navigation">
+          <ul class="space-y-2">
+            {navLinks.map(link => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-white/65 hover:text-gold transition-colors text-sm"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-gold font-semibold text-sm tracking-wide uppercase mb-4">Get in Touch</h3>
+        <a
+          href="mailto:info@prepupsouthcoast.org"
+          class="text-white/65 hover:text-gold transition-colors text-sm block mb-1"
+        >
+          info@prepupsouthcoast.org
+        </a>
+        <p class="text-white/40 text-sm mt-4 leading-relaxed">
+          Serving students in New Bedford and surrounding Southcoast Massachusetts communities.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p class="text-white/40 text-xs">&copy; {year} Prep Up. All rights reserved.</p>
+      <p class="text-white/30 text-xs">Built with ♥ in the Southcoast</p>
+    </div>
+
+  </div>
+</footer>

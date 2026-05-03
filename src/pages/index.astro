@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import PillarCard from '../components/PillarCard.astro';
+import FounderCard from '../components/FounderCard.astro';
+import CTAStrip from '../components/CTAStrip.astro';
+---
+
+<BaseLayout
+  title="Prep Up Southcoast — College Access for All"
+  description="Prep Up provides free, equitable college counseling to high school students in the New Bedford Southcoast area. Discover our four-year program."
+>
+
+  <!-- Hero -->
+  <Hero
+    headline="College Access for All"
+    subheadline="Equitable, process-driven college guidance for Southcoast students who face barriers to higher education."
+    primaryCTA={{ label: 'Learn About Our Program', href: '/program' }}
+    secondaryCTA={{ label: 'Support Our Mission', href: '/support' }}
+  />
+
+  <!-- Mission strip -->
+  <section class="bg-gray-50 border-y border-gray-100 py-14 px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-xs font-semibold text-gold-dark tracking-widest uppercase mb-3">Our Mission</p>
+      <h2 class="font-serif text-2xl md:text-3xl font-bold text-navy leading-snug">
+        To provide equitable, process-driven college guidance to empower students in the Southcoast area who face barriers to higher education.
+      </h2>
+    </div>
+  </section>
+
+  <!-- Three-pillar overview -->
+  <section class="py-16 md:py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <p class="text-xs font-semibold text-gold-dark tracking-widest uppercase mb-3">How We Work</p>
+        <h2 class="section-heading">Our Methodology</h2>
+        <p class="page-subtitle mx-auto mt-3">
+          Three interconnected pillars guide every student's journey from enrollment through matriculation.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <PillarCard
+          number={1}
+          title="Active Discovery"
+          description="A cohort-based search model that shifts the focus from &ldquo;getting in&rdquo; to &ldquo;finding fit&rdquo; through mutual support, self-reflection, and self-advocacy."
+        />
+        <PillarCard
+          number={2}
+          title="Narrative Cohesion"
+          description="Synthesizing transcripts, testing, and extracurriculars into one clear, compelling, and authentic story about each student."
+        />
+        <PillarCard
+          number={3}
+          title="Process Driven"
+          description="Utilizing essential criteria to drive each student's search process from 9th grade through senior year."
+        />
+      </div>
+      <div class="text-center mt-8">
+        <a href="/program" class="btn-navy-outline">Explore the Full Program →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founders teaser -->
+  <section class="bg-gray-50 py-16 md:py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <p class="text-xs font-semibold text-gold-dark tracking-widest uppercase mb-3">The Team</p>
+        <h2 class="section-heading">Meet Our Founders</h2>
+        <p class="page-subtitle mx-auto mt-3">
+          Over six decades of combined experience in independent school college counseling, now focused on equitable access in the Southcoast.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Stuart -->
+        <div class="card flex gap-5 items-start">
+          <div class="shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-navy to-navy-dark flex items-center justify-center">
+            <span class="font-serif text-xl font-bold text-gold/80">ST</span>
+          </div>
+          <div>
+            <h3 class="font-serif text-lg font-semibold text-navy mb-2">Stuart Titus</h3>
+            <p class="text-navy-dark/65 text-sm leading-relaxed">
+              Three decades at independent schools in the Northeast, including Director of College Counseling at Mercersburg Academy, and counselor at Tabor Academy and San Francisco University High School.
+            </p>
+          </div>
+        </div>
+
+        <!-- Lucia -->
+        <div class="card flex gap-5 items-start">
+          <div class="shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-navy to-navy-dark flex items-center justify-center">
+            <span class="font-serif text-xl font-bold text-gold/80">LJ</span>
+          </div>
+          <div>
+            <h3 class="font-serif text-lg font-semibold text-navy mb-2">Lucia Jaccaci</h3>
+            <p class="text-navy-dark/65 text-sm leading-relaxed">
+              30 years as educator and administrator in the U.S. and China. Helped develop college counseling at YK Pao School in Shanghai; currently volunteers at Our Sister's School in New Bedford.
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="text-center mt-8">
+        <a href="/about" class="btn-navy-outline">Read More About Our Founders →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <CTAStrip
+    headline="Ready to invest in the next generation of Southcoast scholars?"
+    primaryCTA={{ label: 'Get Involved', href: '/support' }}
+    secondaryCTA={{ label: 'Contact Us', href: '/contact' }}
+  />
+
+</BaseLayout>

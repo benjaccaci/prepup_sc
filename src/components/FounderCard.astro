@@ -1,0 +1,33 @@
+---
+interface Props {
+  name: string;
+  bio: string;
+  initials: string;
+  /** When true, photo is on the right side on desktop */
+  reversed?: boolean;
+}
+
+const { name, bio, initials, reversed = false } = Astro.props;
+---
+
+<article
+  class={`flex flex-col ${reversed ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 items-start`}
+>
+  <!-- Photo placeholder -->
+  <div class="shrink-0 w-full md:w-56 lg:w-64">
+    <div
+      class="w-full md:w-56 lg:w-64 aspect-square rounded-2xl bg-gradient-to-br from-navy to-navy-dark flex items-center justify-center shadow-md"
+      role="img"
+      aria-label={`Photo placeholder for ${name}`}
+    >
+      <span class="font-serif text-5xl font-bold text-gold/80">{initials}</span>
+    </div>
+  </div>
+
+  <!-- Bio -->
+  <div class="flex-1">
+    <h3 class="font-serif text-2xl font-bold text-navy mb-3">{name}</h3>
+    <div class="w-12 h-1 bg-gold rounded-full mb-4"></div>
+    <p class="text-navy-dark/70 leading-relaxed text-base">{bio}</p>
+  </div>
+</article>

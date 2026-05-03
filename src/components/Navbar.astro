@@ -1,0 +1,98 @@
+---
+const path = Astro.url.pathname;
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/program', label: 'Program' },
+  { href: '/support', label: 'Support Us' },
+  { href: '/contact', label: 'Contact' },
+];
+
+function isActive(href: string): boolean {
+  if (href === '/') return path === '/' || path === '';
+  return path.startsWith(href);
+}
+---
+
+<header class="sticky top-0 z-50 bg-white shadow-sm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <a href="/" class="flex items-center shrink-0" aria-label="Prep Up Southcoast — Home">
+        <img src="/logo.svg" alt="Prep Up" class="h-9 w-auto" />
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-7" aria-label="Main navigation">
+        {links.map(link => (
+          <a
+            href={link.href}
+            class={`text-sm font-medium transition-colors duration-200 hover:text-gold ${
+              isActive(link.href)
+                ? 'text-navy font-semibold border-b-2 border-gold pb-0.5'
+                : 'text-navy-dark/80'
+            }`}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Mobile hamburger button -->
+      <button
+        id="hamburger"
+        class="md:hidden p-2 rounded-lg text-navy hover:bg-gray-100 transition-colors"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Mobile menu (hidden by default) -->
+    <div
+      id="mobile-menu"
+      class="md:hidden hidden border-t border-gray-100 pb-3"
+      role="region"
+      aria-label="Mobile navigation"
+    >
+      <nav class="flex flex-col pt-2" aria-label="Mobile navigation links">
+        {links.map(link => (
+          <a
+            href={link.href}
+            class={`px-3 py-3 text-base font-medium rounded-lg transition-colors hover:bg-gray-50 ${
+              isActive(link.href) ? 'text-navy font-semibold' : 'text-navy-dark/80'
+            }`}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+    </div>
+
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('hamburger');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    iconOpen?.classList.toggle('hidden');
+    iconClose?.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>

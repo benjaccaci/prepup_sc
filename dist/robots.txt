@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.prepupsouthcoast.org/sitemap-index.xml

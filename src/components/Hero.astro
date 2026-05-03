@@ -1,0 +1,55 @@
+---
+interface CTA {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  headline: string;
+  subheadline: string;
+  primaryCTA?: CTA;
+  secondaryCTA?: CTA;
+  showLogo?: boolean;
+}
+
+const { headline, subheadline, primaryCTA, secondaryCTA, showLogo = true } = Astro.props;
+---
+
+<section class="bg-gradient-to-br from-navy-dark via-navy to-[#1a3a70] text-white py-24 md:py-36 px-6">
+  <div class="max-w-4xl mx-auto text-center">
+
+    {showLogo && (
+      <div class="flex justify-center mb-10">
+        <img
+          src="/logo.svg"
+          alt="Prep Up Southcoast"
+          class="h-16 md:h-20 w-auto brightness-0 invert"
+        />
+      </div>
+    )}
+
+    <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+      {headline}
+    </h1>
+
+    <p class="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
+      {subheadline}
+    </p>
+
+    {(primaryCTA || secondaryCTA) && (
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        {primaryCTA && (
+          <a href={primaryCTA.href} class="btn-primary text-base px-8 py-3.5">
+            {primaryCTA.label}
+          </a>
+        )}
+        {secondaryCTA && (
+          <a href={secondaryCTA.href} class="btn-secondary-outline text-base px-8 py-3.5">
+            {secondaryCTA.label}
+          </a>
+        )}
+      </div>
+    )}
+
+  </div>
+</section>
