@@ -1,0 +1,59 @@
+---
+interface Props {
+  items?: string[];
+  variant?: 'paper' | 'navy' | 'gold';
+  separator?: string;
+  speed?: 'normal' | 'fast';
+}
+
+const defaultItems = [
+  'College Access for All',
+  'New Bedford, Massachusetts',
+  'Equitable Counseling',
+  'Process-Driven Guidance',
+  'Southcoast Scholars',
+  'Independent School Methods',
+];
+
+const items = Astro.props.items ?? defaultItems;
+const { variant = 'paper', separator = '✦', speed = 'normal' } = Astro.props;
+
+const variants: Record<string, { bg: string; text: string; accent: string }> = {
+  paper: {
+    bg: 'bg-paper-warm border-y border-navy-ink/10',
+    text: 'text-navy-ink/85',
+    accent: 'text-gold-dark',
+  },
+  navy: {
+    bg: 'bg-navy-dark grain',
+    text: 'text-paper/90',
+    accent: 'text-gold',
+  },
+  gold: {
+    bg: 'bg-gold',
+    text: 'text-navy-ink',
+    accent: 'text-navy-ink/40',
+  },
+};
+const v = variants[variant];
+
+const repeated = [...items, ...items, ...items];
+const speedClass = speed === 'fast' ? 'animate-marquee-fast' : 'animate-marquee';
+---
+
+<div class={`relative overflow-hidden ${v.bg} py-7 md:py-9`}>
+  <div class={`flex whitespace-nowrap will-change-transform ${speedClass}`}>
+    {repeated.map(item => (
+      <div class="flex items-center shrink-0 px-8 md:px-10">
+        <span
+          class={`font-display italic font-light text-2xl md:text-[2rem] ${v.text} tracking-tight leading-none`}
+        >
+          {item}
+        </span>
+        <span class={`ml-10 md:ml-14 text-2xl md:text-3xl ${v.accent} leading-none`}>
+          {separator}
+        </span>
+      </div>
+    ))}
+  </div>
+</div>

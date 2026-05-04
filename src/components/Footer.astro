@@ -4,71 +4,87 @@ const year = new Date().getFullYear();
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/program', label: 'Our Program' },
+  { href: '/program', label: 'Program' },
   { href: '/support', label: 'Support Us' },
   { href: '/contact', label: 'Contact' },
 ];
 ---
 
-<footer class="bg-navy text-white">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+<footer class="relative bg-navy-dark text-paper grain overflow-hidden">
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+  <!-- Top gold rule -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent"></div>
 
-      <!-- Brand column -->
-      <div>
-        <a href="/" class="flex items-center gap-3 mb-4" aria-label="Prep Up Southcoast">
-          <img src="/logo-badge.svg" alt="Prep Up badge" class="h-14 w-14" />
+  <div class="container-x-wide pt-20 pb-12 md:pt-24 md:pb-12 relative">
+
+    <!-- Top: Brand + columns -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-20 pb-16 border-b border-paper/10">
+
+      <!-- Brand mark -->
+      <div class="md:col-span-5">
+        <a href="/" class="inline-flex items-center gap-4 mb-7 group" aria-label="Prep Up Southcoast">
+          <img src="/logo-badge.svg" alt="Prep Up" class="h-16 w-16 transition-transform duration-700 ease-out group-hover:rotate-[8deg]" />
           <div>
-            <p class="font-serif font-bold text-lg text-white leading-tight">Prep Up</p>
-            <p class="text-xs text-white/60 tracking-widest uppercase mt-0.5">College Access for All</p>
+            <p class="font-display text-2xl font-medium text-paper leading-none tracking-tightest">Prep Up</p>
+            <p class="editorial-label-light mt-1.5">College Access for All</p>
           </div>
         </a>
-        <address class="not-italic text-white/60 text-sm leading-relaxed">
+        <p class="text-paper/60 leading-[1.7] max-w-md text-base font-light">
+          A non-profit providing equitable, process-driven college guidance to Southcoast students who face barriers to higher education.
+        </p>
+      </div>
+
+      <!-- Visit -->
+      <div class="md:col-span-3">
+        <p class="editorial-label-light mb-5">Visit</p>
+        <address class="not-italic text-paper/75 leading-[1.7] font-light">
           1265 Purchase Street<br />
           New Bedford, MA 02740
         </address>
       </div>
 
-      <!-- Quick links -->
-      <div>
-        <h3 class="text-gold font-semibold text-sm tracking-wide uppercase mb-4">Quick Links</h3>
-        <nav aria-label="Footer navigation">
-          <ul class="space-y-2">
-            {navLinks.map(link => (
-              <li>
-                <a
-                  href={link.href}
-                  class="text-white/65 hover:text-gold transition-colors text-sm"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
-
       <!-- Contact -->
-      <div>
-        <h3 class="text-gold font-semibold text-sm tracking-wide uppercase mb-4">Get in Touch</h3>
+      <div class="md:col-span-2">
+        <p class="editorial-label-light mb-5">Contact</p>
         <a
           href="mailto:info@prepupsouthcoast.org"
-          class="text-white/65 hover:text-gold transition-colors text-sm block mb-1"
+          class="text-paper/75 hover:text-gold transition-colors text-sm font-light leading-relaxed break-words"
         >
-          info@prepupsouthcoast.org
+          info@<wbr/>prepupsouthcoast.org
         </a>
-        <p class="text-white/40 text-sm mt-4 leading-relaxed">
-          Serving students in New Bedford and surrounding Southcoast Massachusetts communities.
-        </p>
+      </div>
+
+      <!-- Nav -->
+      <div class="md:col-span-2">
+        <p class="editorial-label-light mb-5">Navigate</p>
+        <ul class="space-y-2.5">
+          {navLinks.map(link => (
+            <li>
+              <a
+                href={link.href}
+                class="text-paper/75 hover:text-gold transition-colors text-sm font-light"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
 
     </div>
 
-    <!-- Bottom bar -->
-    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2">
-      <p class="text-white/40 text-xs">&copy; {year} Prep Up. All rights reserved.</p>
-      <p class="text-white/30 text-xs">Built with ♥ in the Southcoast</p>
+    <!-- Big editorial tagline -->
+    <div class="mb-20 overflow-hidden">
+      <p class="font-display text-[11vw] md:text-[8vw] lg:text-[7rem] xl:text-[8.5rem] font-light leading-[0.95] tracking-tightest text-paper/85">
+        Closing the<br/>
+        <span class="italic text-gold">guidance gap.</span>
+      </p>
+    </div>
+
+    <!-- Bottom -->
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+      <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-paper/40">© {year} Prep Up · All rights reserved</p>
+      <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-paper/30">Built with ♥ in the Southcoast</p>
     </div>
 
   </div>

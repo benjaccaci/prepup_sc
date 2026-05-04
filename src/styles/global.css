@@ -8,48 +8,184 @@
   }
 
   body {
-    @apply font-sans text-navy-dark bg-white antialiased;
+    @apply font-sans bg-paper text-navy-ink antialiased;
+    font-feature-settings: "ss01", "kern", "calt";
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(242, 183, 54, 0.45);
+    color: #0A1830;
+  }
+
+  /* Subtle scrollbar styling */
+  html {
+    scrollbar-color: #142D5C #FAF7F0;
+  }
+
+  /* Heading defaults */
+  h1, h2, h3, h4 {
+    @apply font-display;
+    font-feature-settings: "ss01", "ss02", "kern";
+  }
+
+  /* Variable axis warmth on Fraunces */
+  .font-display, .font-serif, h1, h2, h3, h4 {
+    font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 0;
+  }
+
+  /* Smaller display text uses smaller opsz */
+  .font-display-sm {
+    font-variation-settings: "opsz" 36, "SOFT" 50, "WONK" 0;
   }
 }
 
 @layer components {
-  /* Buttons */
+
+  /* ============ Buttons ============ */
+
   .btn-primary {
-    @apply inline-block bg-gold text-navy-dark font-semibold px-6 py-3 rounded-xl hover:bg-gold-dark transition-colors duration-200 text-center;
+    @apply inline-flex items-center gap-2.5 bg-gold text-navy-ink font-medium px-7 py-3.5 rounded-full transition-all duration-300 ease-out hover:shadow-xl hover:shadow-gold/25 hover:-translate-y-0.5;
+    letter-spacing: 0.005em;
   }
 
-  .btn-secondary-outline {
-    @apply inline-block bg-transparent text-white font-semibold px-6 py-3 rounded-xl border-2 border-white hover:bg-white hover:text-navy transition-colors duration-200 text-center;
+  .btn-primary .arrow,
+  .btn-outline .arrow,
+  .text-link .arrow {
+    @apply inline-block transition-transform duration-300 ease-out;
   }
 
-  .btn-navy {
-    @apply inline-block bg-navy text-white font-semibold px-6 py-3 rounded-xl hover:bg-navy-dark transition-colors duration-200 text-center;
+  .btn-primary:hover .arrow,
+  .btn-outline:hover .arrow {
+    @apply translate-x-1;
   }
 
-  .btn-navy-outline {
-    @apply inline-block bg-transparent text-navy font-semibold px-6 py-3 rounded-xl border-2 border-navy hover:bg-navy hover:text-white transition-colors duration-200 text-center;
+  .btn-outline {
+    @apply inline-flex items-center gap-2.5 bg-transparent border border-current px-7 py-3.5 rounded-full transition-all duration-300 ease-out font-medium;
+    letter-spacing: 0.005em;
   }
 
-  /* Layout */
+  .btn-outline:hover {
+    @apply bg-current/[0.06];
+  }
+
+  /* ============ Text links with draw-on-hover underline ============ */
+
+  .text-link {
+    @apply inline-flex items-center gap-1.5 relative pb-1 font-medium;
+  }
+
+  .text-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    transform-origin: right;
+    transform: scaleX(1);
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .text-link:hover::after {
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+
+  .text-link:hover .arrow {
+    transform: translateX(5px);
+  }
+
+  /* ============ Layout containers ============ */
+
   .container-narrow {
-    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-3xl mx-auto px-6 lg:px-8;
   }
 
   .container-wide {
-    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-6xl mx-auto px-6 lg:px-8;
   }
 
-  /* Typography */
+  .container-x-wide {
+    @apply max-w-7xl mx-auto px-6 lg:px-8;
+  }
+
+  /* ============ Editorial labels ============ */
+
+  .editorial-label {
+    @apply font-mono text-[11px] uppercase tracking-[0.22em] text-navy-ink/55 font-medium;
+  }
+
+  .editorial-label-light {
+    @apply font-mono text-[11px] uppercase tracking-[0.22em] text-paper/50 font-medium;
+  }
+
+  /* ============ Section heading utilities ============ */
+
   .section-heading {
-    @apply font-serif text-3xl md:text-4xl font-bold text-navy;
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-medium text-navy-ink leading-[1.05] tracking-tightest;
   }
 
-  .page-subtitle {
-    @apply text-lg text-navy-dark/70 leading-relaxed max-w-2xl;
+  /* ============ Decorative ============ */
+
+  .gold-divider {
+    @apply h-px bg-gradient-to-r from-transparent via-gold to-transparent;
   }
 
-  /* Cards */
-  .card {
-    @apply bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-md transition-shadow duration-200;
+  .paper-divider {
+    @apply h-px bg-gradient-to-r from-transparent via-paper/20 to-transparent;
+  }
+
+  /* ============ Scroll reveals ============ */
+
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ============ Grain texture overlay ============ */
+
+  .grain {
+    position: relative;
+  }
+
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.08;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ============ Vertical line decoration ============ */
+
+  .grid-lines {
+    background-image: linear-gradient(to right, currentColor 1px, transparent 1px);
+    background-size: 12.5% 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

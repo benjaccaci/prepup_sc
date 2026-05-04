@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import Marquee from '../components/Marquee.astro';
 import PillarCard from '../components/PillarCard.astro';
-import FounderCard from '../components/FounderCard.astro';
 import CTAStrip from '../components/CTAStrip.astro';
 ---
 
@@ -13,105 +13,163 @@ import CTAStrip from '../components/CTAStrip.astro';
 
   <!-- Hero -->
   <Hero
-    headline="College Access for All"
-    subheadline="Equitable, process-driven college guidance for Southcoast students who face barriers to higher education."
-    primaryCTA={{ label: 'Learn About Our Program', href: '/program' }}
-    secondaryCTA={{ label: 'Support Our Mission', href: '/support' }}
+    edition="01"
+    primaryCTA={{ label: 'Explore the Program', href: '/program' }}
+    secondaryCTA={{ label: 'Support our mission', href: '/support' }}
   />
 
-  <!-- Mission strip -->
-  <section class="bg-gray-50 border-y border-gray-100 py-14 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <p class="text-xs font-semibold text-gold-dark tracking-widest uppercase mb-3">Our Mission</p>
-      <h2 class="font-serif text-2xl md:text-3xl font-bold text-navy leading-snug">
-        To provide equitable, process-driven college guidance to empower students in the Southcoast area who face barriers to higher education.
-      </h2>
+  <!-- Marquee strip -->
+  <Marquee />
+
+  <!-- Mission section: editorial pull-quote -->
+  <section class="relative py-28 md:py-40 px-6">
+    <div class="container-narrow">
+      <div class="flex items-center gap-3 mb-10" data-reveal>
+        <span class="editorial-label">№ 02</span>
+        <span class="h-px w-10 bg-navy-ink/20"></span>
+        <span class="editorial-label">Our Mission</span>
+      </div>
+
+      <p
+        class="font-display text-3xl md:text-5xl lg:text-[3.5rem] font-light leading-[1.15] tracking-tightest text-navy-ink"
+        data-reveal
+        data-reveal-delay="80"
+      >
+        To provide <span class="italic">equitable</span>, process-driven college guidance to empower students in the Southcoast area
+        <span class="relative inline-block">
+          <span class="text-gold-dark italic">who face barriers</span>
+          <span class="absolute -bottom-1 left-0 right-0 h-[3px] bg-gold/40 rounded-full"></span>
+        </span>
+        to higher education.
+      </p>
+
+      <div class="mt-12 flex items-center gap-3" data-reveal data-reveal-delay="200">
+        <span class="h-px w-10 bg-gold"></span>
+        <span class="font-mono text-xs uppercase tracking-[0.22em] text-navy-ink/50">From the founders</span>
+      </div>
     </div>
   </section>
 
-  <!-- Three-pillar overview -->
-  <section class="py-16 md:py-20 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12">
-        <p class="text-xs font-semibold text-gold-dark tracking-widest uppercase mb-3">How We Work</p>
-        <h2 class="section-heading">Our Methodology</h2>
-        <p class="page-subtitle mx-auto mt-3">
-          Three interconnected pillars guide every student's journey from enrollment through matriculation.
-        </p>
+  <!-- Methodology -->
+  <section class="bg-white border-y border-navy-ink/[0.08] py-28 md:py-40 px-6">
+    <div class="container-x-wide">
+      <div class="mb-20 md:mb-24" data-reveal>
+        <div class="flex items-center gap-3 mb-8">
+          <span class="editorial-label">№ 03</span>
+          <span class="h-px w-10 bg-navy-ink/20"></span>
+          <span class="editorial-label">Methodology</span>
+        </div>
+        <h2 class="font-display text-4xl md:text-6xl lg:text-7xl font-medium text-navy-ink leading-[0.95] tracking-tightest max-w-4xl">
+          Three pillars guide<br/>
+          <span class="italic font-light text-navy-ink/65">every student's journey.</span>
+        </h2>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-16">
         <PillarCard
           number={1}
+          index={0}
           title="Active Discovery"
-          description="A cohort-based search model that shifts the focus from &ldquo;getting in&rdquo; to &ldquo;finding fit&rdquo; through mutual support, self-reflection, and self-advocacy."
+          description={`A cohort-based search model that shifts the focus from "getting in" to "finding fit" through mutual support, self-reflection, and self-advocacy.`}
         />
         <PillarCard
           number={2}
+          index={1}
           title="Narrative Cohesion"
           description="Synthesizing transcripts, testing, and extracurriculars into one clear, compelling, and authentic story about each student."
         />
         <PillarCard
           number={3}
+          index={2}
           title="Process Driven"
           description="Utilizing essential criteria to drive each student's search process from 9th grade through senior year."
         />
       </div>
-      <div class="text-center mt-8">
-        <a href="/program" class="btn-navy-outline">Explore the Full Program →</a>
+
+      <div class="mt-20 flex justify-center" data-reveal>
+        <a href="/program" class="text-link text-navy-ink hover:text-gold-dark text-base">
+          <span>Explore the full program</span>
+          <span class="arrow">→</span>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Founders teaser -->
-  <section class="bg-gray-50 py-16 md:py-20 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12">
-        <p class="text-xs font-semibold text-gold-dark tracking-widest uppercase mb-3">The Team</p>
-        <h2 class="section-heading">Meet Our Founders</h2>
-        <p class="page-subtitle mx-auto mt-3">
-          Over six decades of combined experience in independent school college counseling, now focused on equitable access in the Southcoast.
-        </p>
+  <section class="bg-paper-warm py-28 md:py-40 px-6">
+    <div class="container-x-wide">
+      <div class="mb-20" data-reveal>
+        <div class="flex items-center gap-3 mb-8">
+          <span class="editorial-label">№ 04</span>
+          <span class="h-px w-10 bg-navy-ink/20"></span>
+          <span class="editorial-label">The Team</span>
+        </div>
+        <h2 class="font-display text-4xl md:text-6xl lg:text-7xl font-medium text-navy-ink leading-[0.95] tracking-tightest max-w-5xl">
+          Built on six decades<br/>
+          <span class="italic font-light text-navy-ink/65">of independent school counseling.</span>
+        </h2>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-20 items-start">
 
         <!-- Stuart -->
-        <div class="card flex gap-5 items-start">
-          <div class="shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-navy to-navy-dark flex items-center justify-center">
-            <span class="font-serif text-xl font-bold text-gold/80">ST</span>
+        <article class="group" data-reveal>
+          <div class="flex items-start gap-6 mb-7">
+            <div class="shrink-0 w-20 h-20 rounded-full bg-gradient-to-br from-navy via-navy-dark to-navy-ink flex items-center justify-center transition-transform duration-700 group-hover:rotate-[6deg] relative overflow-hidden">
+              <span class="font-display text-2xl font-light text-gold/85 tracking-tighter relative z-10">ST</span>
+              <span
+                class="absolute inset-0 opacity-30 mix-blend-overlay"
+                style="background-image: radial-gradient(circle at 30% 30%, rgba(242,183,54,0.4), transparent 60%);"
+              ></span>
+            </div>
+            <div class="flex-1 pt-2">
+              <p class="editorial-label mb-2">Founder · 01</p>
+              <h3 class="font-display text-2xl md:text-3xl font-medium text-navy-ink tracking-tight">Stuart Titus</h3>
+            </div>
           </div>
-          <div>
-            <h3 class="font-serif text-lg font-semibold text-navy mb-2">Stuart Titus</h3>
-            <p class="text-navy-dark/65 text-sm leading-relaxed">
-              Three decades at independent schools in the Northeast, including Director of College Counseling at Mercersburg Academy, and counselor at Tabor Academy and San Francisco University High School.
-            </p>
-          </div>
-        </div>
+          <p class="text-navy-ink/70 leading-[1.65] font-light text-[15px]">
+            Three decades at independent schools in the Northeast, including Director of College Counseling at Mercersburg Academy, and counselor at Tabor Academy and San Francisco University High School.
+          </p>
+        </article>
 
         <!-- Lucia -->
-        <div class="card flex gap-5 items-start">
-          <div class="shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-navy to-navy-dark flex items-center justify-center">
-            <span class="font-serif text-xl font-bold text-gold/80">LJ</span>
+        <article class="group" data-reveal data-reveal-delay="120">
+          <div class="flex items-start gap-6 mb-7">
+            <div class="shrink-0 w-20 h-20 rounded-full bg-gradient-to-br from-navy via-navy-dark to-navy-ink flex items-center justify-center transition-transform duration-700 group-hover:rotate-[6deg] relative overflow-hidden">
+              <span class="font-display text-2xl font-light text-gold/85 tracking-tighter relative z-10">LJ</span>
+              <span
+                class="absolute inset-0 opacity-30 mix-blend-overlay"
+                style="background-image: radial-gradient(circle at 30% 30%, rgba(242,183,54,0.4), transparent 60%);"
+              ></span>
+            </div>
+            <div class="flex-1 pt-2">
+              <p class="editorial-label mb-2">Founder · 02</p>
+              <h3 class="font-display text-2xl md:text-3xl font-medium text-navy-ink tracking-tight">Lucia Jaccaci</h3>
+            </div>
           </div>
-          <div>
-            <h3 class="font-serif text-lg font-semibold text-navy mb-2">Lucia Jaccaci</h3>
-            <p class="text-navy-dark/65 text-sm leading-relaxed">
-              30 years as educator and administrator in the U.S. and China. Helped develop college counseling at YK Pao School in Shanghai; currently volunteers at Our Sister's School in New Bedford.
-            </p>
-          </div>
-        </div>
+          <p class="text-navy-ink/70 leading-[1.65] font-light text-[15px]">
+            30 years as educator and administrator in the U.S. and China. Helped develop college counseling at YK Pao School in Shanghai; currently volunteers at Our Sister's School in New Bedford.
+          </p>
+        </article>
 
       </div>
-      <div class="text-center mt-8">
-        <a href="/about" class="btn-navy-outline">Read More About Our Founders →</a>
+
+      <div class="mt-20 flex justify-center" data-reveal>
+        <a href="/about" class="text-link text-navy-ink hover:text-gold-dark text-base">
+          <span>Read more about our founders</span>
+          <span class="arrow">→</span>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Closing CTA -->
   <CTAStrip
-    headline="Ready to invest in the next generation of Southcoast scholars?"
+    eyebrow="Get involved · 05"
+    headline="Ready to invest in the next generation of"
+    headlineAccent="Southcoast scholars?"
     primaryCTA={{ label: 'Get Involved', href: '/support' }}
-    secondaryCTA={{ label: 'Contact Us', href: '/contact' }}
+    secondaryCTA={{ label: 'Contact us', href: '/contact' }}
   />
 
 </BaseLayout>

@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
 import PillarCard from '../components/PillarCard.astro';
 import YearCard from '../components/YearCard.astro';
+import Marquee from '../components/Marquee.astro';
 import CTAStrip from '../components/CTAStrip.astro';
 ---
 
@@ -10,52 +12,74 @@ import CTAStrip from '../components/CTAStrip.astro';
   description="Prep Up's four-year developmental roadmap guides Southcoast students from 9th grade through successful college matriculation using a cohort-based, process-driven approach."
 >
 
-  <!-- Page header -->
-  <header class="bg-navy text-white py-16 md:py-20 px-6">
-    <div class="max-w-4xl mx-auto">
-      <p class="text-xs font-semibold text-gold tracking-widest uppercase mb-3">What We Offer</p>
-      <h1 class="font-serif text-4xl md:text-5xl font-bold leading-tight mb-4">
-        A Four-Year Developmental Roadmap for College Success
-      </h1>
-    </div>
-  </header>
+  <PageHeader
+    edition="03"
+    label="What We Offer"
+    title="A four-year"
+    titleAccent="developmental roadmap."
+    subtitle="From 9th grade through matriculation, every Prep Up student moves through a structured, cohort-based program designed to translate potential into placement."
+  />
 
-  <!-- Intro -->
-  <section class="py-14 md:py-16 px-6 bg-gray-50 border-b border-gray-100">
-    <div class="max-w-3xl mx-auto text-base md:text-lg text-navy-dark/75 leading-relaxed space-y-4">
-      <p>
+  <!-- Intro paragraph -->
+  <section class="py-20 md:py-28 px-6">
+    <div class="container-narrow">
+      <div class="flex items-center gap-3 mb-8" data-reveal>
+        <span class="editorial-label">Overview</span>
+        <span class="h-px w-10 bg-navy-ink/20"></span>
+        <span class="editorial-label">The program in brief</span>
+      </div>
+
+      <p
+        class="font-display text-2xl md:text-3xl lg:text-[2.4rem] font-light leading-[1.3] tracking-tight text-navy-ink"
+        data-reveal
+        data-reveal-delay="80"
+      >
         Prep Up offers a high-touch, cohort-based college advisory program designed to close any
-        &ldquo;guidance gap.&rdquo; By adapting the college counseling models of top independent
-        schools for a community-based setting, we provide a scalable, multi-year architecture that
-        can be tailored to meet students&rsquo; needs and transform their potential into collegiate
-        success.
+        <span class="italic text-gold-dark">"guidance gap."</span> By adapting the counseling models of top independent schools for a community-based setting, we provide a scalable, multi-year architecture that meets students' needs and transforms their potential into collegiate success.
       </p>
     </div>
   </section>
 
+  <!-- Marquee -->
+  <Marquee
+    items={['Active Discovery', 'Narrative Cohesion', 'Process Driven', 'Cohort-Based', 'Developmental']}
+    variant="navy"
+  />
+
   <!-- Methodology -->
-  <section class="py-16 md:py-20 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="mb-12">
-        <p class="text-xs font-semibold text-gold-dark tracking-widest uppercase mb-3">How We Work</p>
-        <h2 class="section-heading">Our Three-Pillar Methodology</h2>
-        <p class="page-subtitle mt-3">
+  <section class="bg-white py-28 md:py-36 px-6">
+    <div class="container-x-wide">
+      <div class="mb-20 md:mb-24" data-reveal>
+        <div class="flex items-center gap-3 mb-8">
+          <span class="editorial-label">Methodology</span>
+          <span class="h-px w-10 bg-navy-ink/20"></span>
+          <span class="editorial-label">Three pillars</span>
+        </div>
+        <h2 class="font-display text-4xl md:text-6xl lg:text-7xl font-medium text-navy-ink leading-[0.95] tracking-tightest max-w-5xl">
+          The three-pillar<br/>
+          <span class="italic font-light text-navy-ink/65">framework.</span>
+        </h2>
+        <p class="mt-8 max-w-2xl text-navy-ink/70 text-base md:text-lg leading-[1.65] font-light">
           Every student moves through the same three-pillar framework, tailored to their individual story and goals.
         </p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-16">
         <PillarCard
           number={1}
+          index={0}
           title="Active Discovery"
-          description="A cohort-based search model that shifts the focus from &ldquo;getting in&rdquo; to &ldquo;finding fit&rdquo; through mutual support, self-reflection, and self-advocacy."
+          description={`A cohort-based search model that shifts the focus from "getting in" to "finding fit" through mutual support, self-reflection, and self-advocacy.`}
         />
         <PillarCard
           number={2}
+          index={1}
           title="Narrative Cohesion"
           description="Synthesizing transcripts, testing, and extracurriculars into one clear, compelling, and authentic story about each student."
         />
         <PillarCard
           number={3}
+          index={2}
           title="Process Driven"
           description="Utilizing essential criteria to drive each student's search process from day one through final enrollment decisions."
         />
@@ -64,103 +88,89 @@ import CTAStrip from '../components/CTAStrip.astro';
   </section>
 
   <!-- Gold divider -->
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="h-px bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+  <div class="container-x-wide">
+    <div class="gold-divider"></div>
   </div>
 
   <!-- Four-year roadmap -->
-  <section class="py-16 md:py-20 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="mb-12">
-        <p class="text-xs font-semibold text-gold-dark tracking-widest uppercase mb-3">Year by Year</p>
-        <h2 class="section-heading">The Four-Year Roadmap</h2>
-        <p class="page-subtitle mt-3">
+  <section class="bg-paper-warm py-28 md:py-40 px-6 grain">
+    <div class="container-x-wide">
+      <div class="mb-20 md:mb-24" data-reveal>
+        <div class="flex items-center gap-3 mb-8">
+          <span class="editorial-label">The Roadmap</span>
+          <span class="h-px w-10 bg-navy-ink/20"></span>
+          <span class="editorial-label">Year by year</span>
+        </div>
+        <h2 class="font-display text-4xl md:text-6xl lg:text-7xl font-medium text-navy-ink leading-[0.95] tracking-tightest max-w-5xl">
+          Four years.<br/>
+          <span class="italic font-light text-navy-ink/65">One developmental arc.</span>
+        </h2>
+        <p class="mt-8 max-w-2xl text-navy-ink/70 text-base md:text-lg leading-[1.65] font-light">
           Each year builds on the last, moving students from self-awareness to self-advocacy to successful matriculation.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10">
 
         <YearCard
+          index={0}
           grade="9th Grade"
+          yearNumber="9"
+          ordinal="th"
           theme="The Focus: Transition & Resilience"
           emphasis="Helping students develop the self-awareness and self-management skills that will support them throughout high school and in the college process."
-          strategicOutcome="Establishing &ldquo;College Literacy&rdquo; from day one. We ensure students understand how early academic choices, self-awareness, and community engagement become the foundation of their future opportunities."
+          strategicOutcome={`Establishing "College Literacy" from day one. We ensure students understand how early academic choices, self-awareness, and community engagement become the foundation of their future opportunities.`}
           seasons={[
-            {
-              name: 'Fall',
-              activities: 'High School Integration & GPA Literacy. Habit Building.',
-            },
-            {
-              name: 'Winter/Spring',
-              activities: 'Cohort Team Building, Course Planning, Summer Engagement & Civic Impact.',
-            },
+            { name: 'Fall', activities: 'High School Integration & GPA Literacy. Habit Building.' },
+            { name: 'Winter / Spring', activities: 'Cohort Team Building, Course Planning, Summer Engagement & Civic Impact.' },
           ]}
         />
 
         <YearCard
+          index={1}
           grade="10th Grade"
+          yearNumber="10"
+          ordinal="th"
           theme="The Exploration: Expanding the Personal Horizon"
           focus="Social and Emotional Learning (SEL), Continued Habit Building"
           emphasis="Character, Engagement, and Purpose. Moving beyond 9th grade means learning to manage stress, navigate relationships with others, and refine academic skills."
           strategicOutcome="Students continue to develop their self-awareness by identifying unique strengths and aligning their natural talents with academic and extracurricular opportunities."
           seasons={[
-            {
-              name: 'Fall',
-              activities: 'Defining Non-Negotiables and Developing a Personal Platform (&ldquo;This I Believe&rdquo;).',
-            },
-            {
-              name: 'Winter',
-              activities: 'Standardized Testing, Diagnostics & First College Exposure.',
-            },
-            {
-              name: 'Spring',
-              activities: 'Cohort Mentorship Program & College Major Research, Summer Planning.',
-            },
+            { name: 'Fall', activities: `Defining Non-Negotiables and Developing a Personal Platform ("This I Believe").` },
+            { name: 'Winter', activities: 'Standardized Testing, Diagnostics & First College Exposure.' },
+            { name: 'Spring', activities: 'Cohort Mentorship Program & College Major Research, Summer Planning.' },
           ]}
         />
 
         <YearCard
+          index={2}
           grade="11th Grade"
+          yearNumber="11"
+          ordinal="th"
           theme="The Search: Defining the Parameters & Personal Narrative"
           focus="List Building and Research"
           emphasis="Balancing cohort programming with individual counseling."
-          strategicOutcome="Defining the &ldquo;Right Fit.&rdquo; This is the core of our model. We move students from broad cohort programming into the more personalized work of the search process, ensuring a balanced list of college options informed by a deep dive into financial literacy for the entire family."
+          strategicOutcome={`Defining the "Right Fit." This is the core of our model. We move students from broad cohort programming into the more personalized work of the search process, ensuring a balanced list of college options informed by a deep dive into financial literacy for the entire family.`}
           seasons={[
-            {
-              name: 'Fall',
-              activities: 'College Research & Selection Strategy. Standardized Testing Plan.',
-            },
-            {
-              name: 'Winter',
-              activities: 'Cohort Campus Visits & Access to College Admission and Financial Aid Officers. Understanding &ldquo;Demonstrated Interest&rdquo; and Impacted Majors.',
-            },
-            {
-              name: 'Spring',
-              activities: 'Personal Essay Development & Case Study Workshop.',
-            },
+            { name: 'Fall', activities: 'College Research & Selection Strategy. Standardized Testing Plan.' },
+            { name: 'Winter', activities: `Cohort Campus Visits & Access to College Admission and Financial Aid Officers. Understanding "Demonstrated Interest" and Impacted Majors.` },
+            { name: 'Spring', activities: 'Personal Essay Development & Case Study Workshop.' },
           ]}
         />
 
         <YearCard
+          index={3}
           grade="12th Grade"
+          yearNumber="12"
+          ordinal="th"
           theme="The Launch: Application Mechanics & Matriculation"
           focus="Advocacy & Persistence"
           emphasis="Application Requirements and Deadlines."
           strategicOutcome="Successful Matriculation. We provide the technical expertise to navigate complex application and financial aid cycles. Our deadline-driven counseling ensures students are equipped to submit applications successfully and to carefully assess their options once the process is complete."
           seasons={[
-            {
-              name: 'Fall',
-              activities: 'Application Work & Early Deadline Management.',
-            },
-            {
-              name: 'Winter',
-              activities: 'Final Deadline Submissions, Letters of Continued Interest.',
-            },
-            {
-              name: 'Spring',
-              activities: 'Financial Award Analysis (Bottom Line Cost) & Enrollment Logistics.',
-            },
+            { name: 'Fall', activities: 'Application Work & Early Deadline Management.' },
+            { name: 'Winter', activities: 'Final Deadline Submissions, Letters of Continued Interest.' },
+            { name: 'Spring', activities: 'Financial Award Analysis (Bottom Line Cost) & Enrollment Logistics.' },
           ]}
         />
 
@@ -170,9 +180,11 @@ import CTAStrip from '../components/CTAStrip.astro';
 
   <!-- CTA -->
   <CTAStrip
-    headline="Ready to learn more about enrolling in the Prep Up program?"
+    eyebrow="Enrollment"
+    headline="Ready to learn more about enrolling in"
+    headlineAccent="the Prep Up program?"
     primaryCTA={{ label: 'Contact Us', href: '/contact' }}
-    secondaryCTA={{ label: 'Support Our Mission', href: '/support' }}
+    secondaryCTA={{ label: 'Support our mission', href: '/support' }}
   />
 
 </BaseLayout>

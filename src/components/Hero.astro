@@ -5,51 +5,85 @@ interface CTA {
 }
 
 interface Props {
-  headline: string;
-  subheadline: string;
+  edition?: string;
+  meta?: string;
   primaryCTA?: CTA;
   secondaryCTA?: CTA;
-  showLogo?: boolean;
 }
 
-const { headline, subheadline, primaryCTA, secondaryCTA, showLogo = true } = Astro.props;
+const {
+  edition = '01',
+  meta = 'Est. 2024 — Southcoast, Massachusetts',
+  primaryCTA,
+  secondaryCTA,
+} = Astro.props;
 ---
 
-<section class="bg-gradient-to-br from-navy-dark via-navy to-[#1a3a70] text-white py-24 md:py-36 px-6">
-  <div class="max-w-4xl mx-auto text-center">
+<section class="relative bg-navy-dark text-paper grain overflow-hidden min-h-[88vh] flex items-center">
 
-    {showLogo && (
-      <div class="flex justify-center mb-10">
-        <img
-          src="/logo.svg"
-          alt="Prep Up Southcoast"
-          class="h-16 md:h-20 w-auto brightness-0 invert"
-        />
-      </div>
-    )}
+  <!-- Background decoration: vertical lines + glow -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute inset-0 grid-lines text-paper opacity-[0.05]"></div>
+    <div class="absolute top-[15%] -right-32 w-[640px] h-[640px] rounded-full bg-gold/[0.09] blur-3xl"></div>
+    <div class="absolute -bottom-1/4 -left-32 w-[520px] h-[520px] rounded-full bg-navy/40 blur-3xl"></div>
+  </div>
 
-    <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-      {headline}
+  <div class="relative container-x-wide w-full py-24 md:py-28">
+
+    <!-- Top meta line -->
+    <div class="flex items-baseline justify-between mb-14 md:mb-20" data-reveal>
+      <span class="editorial-label-light">{meta}</span>
+      <span class="font-display font-light text-xl md:text-2xl text-paper/40 tabular-nums tracking-wider">№ {edition}</span>
+    </div>
+
+    <!-- Headline -->
+    <h1
+      class="font-display font-medium leading-[0.92] tracking-tightest text-paper max-w-6xl"
+      style="font-size: clamp(2.75rem, 9vw, 9rem);"
+      data-reveal
+      data-reveal-delay="80"
+    >
+      <span class="block">College</span>
+      <span class="block">Access</span>
+      <span class="relative inline-block">
+        for <span class="italic font-light">All</span>
+        <span class="absolute -bottom-1 md:-bottom-2 left-0 right-0 h-[5px] md:h-[8px] bg-gold origin-left animate-draw-line rounded-full"></span>
+      </span>
     </h1>
 
-    <p class="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
-      {subheadline}
+    <!-- Subhead -->
+    <p
+      class="mt-12 md:mt-16 text-base md:text-xl text-paper/70 max-w-xl leading-[1.6] font-light"
+      data-reveal
+      data-reveal-delay="200"
+    >
+      Equitable, process-driven college guidance for Southcoast students who face barriers to higher education.
     </p>
 
+    <!-- CTAs -->
     {(primaryCTA || secondaryCTA) && (
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <div class="mt-12 flex flex-col sm:flex-row gap-6 sm:items-center" data-reveal data-reveal-delay="320">
         {primaryCTA && (
-          <a href={primaryCTA.href} class="btn-primary text-base px-8 py-3.5">
-            {primaryCTA.label}
+          <a href={primaryCTA.href} class="btn-primary">
+            <span>{primaryCTA.label}</span>
+            <span class="arrow">→</span>
           </a>
         )}
         {secondaryCTA && (
-          <a href={secondaryCTA.href} class="btn-secondary-outline text-base px-8 py-3.5">
-            {secondaryCTA.label}
+          <a href={secondaryCTA.href} class="text-link text-paper/85 hover:text-gold">
+            <span>{secondaryCTA.label}</span>
+            <span class="arrow">↗</span>
           </a>
         )}
       </div>
     )}
 
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-7 left-1/2 -translate-x-1/2 hidden md:flex items-center gap-3 opacity-60 animate-fade-in" style="animation-delay: 1.2s;">
+    <span class="editorial-label-light">Scroll</span>
+    <span class="block h-px w-12 bg-paper/40"></span>
+    <span class="text-paper/40 text-xs">↓</span>
   </div>
 </section>
