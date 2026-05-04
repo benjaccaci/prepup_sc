@@ -1,17 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <!-- Background circle -->
-  <circle cx="32" cy="32" r="30" fill="#142D5C"/>
-  <!-- Gold border -->
-  <circle cx="32" cy="32" r="30" stroke="#F2B736" stroke-width="2.5" fill="none"/>
-  <!-- Inner gold ring (subtle) -->
-  <circle cx="32" cy="32" r="26" stroke="#F2B736" stroke-width="0.5" stroke-dasharray="2 3" fill="none" opacity="0.4"/>
-  <!-- Flame -->
-  <path d="M32 10 C30 14 27 18 28 22 C29 25 35 25 36 22 C37 18 34 14 32 10Z" fill="#F2B736"/>
-  <path d="M32 13 C31 16 29 19 30 21 C30.5 22.5 33.5 22.5 34 21 C35 19 33 16 32 13Z" fill="#FFE08A"/>
-  <!-- Torch body -->
-  <rect x="30" y="22" width="4" height="10" rx="1" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <!-- Curved baselines for text -->
+    <path id="topArc" d="M 30,100 A 70,70 0 0,1 170,100" />
+    <path id="bottomArc" d="M 35,108 A 65,65 0 0,0 165,108" />
+  </defs>
+
+  <!-- Outer disc (navy) -->
+  <circle cx="100" cy="100" r="98" fill="#142D5C"/>
+  <!-- Outer ring -->
+  <circle cx="100" cy="100" r="93" fill="none" stroke="#FAF7F0" stroke-width="2"/>
+  <!-- Inner faint ring -->
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#FAF7F0" stroke-width="0.5" opacity="0.45"/>
+
+  <!-- Top curved text "PREP UP" -->
+  <text fill="#FAF7F0" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-size="22" font-weight="700" letter-spacing="3">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">PREP UP</textPath>
+  </text>
+
+  <!-- Bottom curved text "COLLEGE ACCESS FOR ALL" -->
+  <text fill="#FAF7F0" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-size="9.5" font-weight="600" letter-spacing="2.2">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">COLLEGE ACCESS FOR ALL</textPath>
+  </text>
+
+  <!-- Side stars -->
+  <g fill="#FAF7F0">
+    <path transform="translate(38, 100) scale(3.6)" d="M0,-1L0.225,-0.309 0.951,-0.309 0.367,0.118 0.588,0.809 0,0.382 -0.588,0.809 -0.367,0.118 -0.951,-0.309 -0.225,-0.309z"/>
+    <path transform="translate(162, 100) scale(3.6)" d="M0,-1L0.225,-0.309 0.951,-0.309 0.367,0.118 0.588,0.809 0,0.382 -0.588,0.809 -0.367,0.118 -0.951,-0.309 -0.225,-0.309z"/>
+  </g>
+
+  <!-- Center: torch + open book (gold) -->
+  <!-- Outer flame -->
+  <path d="M100 52 C94 60 86 73 89 86 C92 95 108 95 111 86 C114 73 106 60 100 52Z" fill="#F2B736"/>
+  <!-- Inner flame -->
+  <path d="M100 60 C96 67 91 76 93 84 C95 88 105 88 107 84 C109 76 104 67 100 60Z" fill="#FFD970"/>
+
+  <!-- Torch handle (gold) -->
+  <rect x="93" y="86" width="14" height="28" fill="#F2B736"/>
+  <line x1="97" y1="89" x2="97" y2="111" stroke="#142D5C" stroke-width="0.7" opacity="0.4"/>
+  <line x1="103" y1="89" x2="103" y2="111" stroke="#142D5C" stroke-width="0.7" opacity="0.4"/>
+
   <!-- Torch base -->
-  <path d="M28.5 32 L35.5 32 L36 35 L28 35Z" fill="white"/>
-  <!-- "PREP UP" text -->
-  <text x="32" y="50" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="9" font-weight="bold" fill="white" letter-spacing="1.5">PREP UP</text>
+  <path d="M89 114 L111 114 L114 122 L86 122 Z" fill="#F2B736"/>
+
+  <!-- Open book - left page -->
+  <path d="M100 122 C82 119 60 121 50 130 L50 148 C60 140 82 138 100 140 Z" fill="#F2B736"/>
+  <!-- Open book - right page -->
+  <path d="M100 122 C118 119 140 121 150 130 L150 148 C140 140 118 138 100 140 Z" fill="#F2B736"/>
+  <!-- Spine -->
+  <rect x="98" y="122" width="4" height="18" fill="#F2B736"/>
+
+  <!-- Page detail lines -->
+  <path d="M58 132 Q 75 128 95 130" stroke="#142D5C" stroke-width="0.8" fill="none" opacity="0.45"/>
+  <path d="M105 130 Q 125 128 142 132" stroke="#142D5C" stroke-width="0.8" fill="none" opacity="0.45"/>
 </svg>

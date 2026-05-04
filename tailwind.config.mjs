@@ -25,8 +25,8 @@ export default {
         },
       },
       fontFamily: {
-        display: ['"Fraunces"', '"Times New Roman"', 'serif'],
-        serif: ['"Fraunces"', '"Times New Roman"', 'serif'],
+        display: ['"Newsreader"', 'Georgia', '"Times New Roman"', 'serif'],
+        serif: ['"Newsreader"', 'Georgia', '"Times New Roman"', 'serif'],
         sans: ['"Inter"', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },

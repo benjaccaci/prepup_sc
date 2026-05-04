@@ -1,21 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" fill="none">
-  <!-- Flame -->
-  <path d="M26 3 C23 8 19 14 20 21 C21 26 31 26 32 21 C33 14 29 8 26 3Z" fill="#F2B736"/>
-  <path d="M26 8 C24 12 22 16 23 19 C24 21.5 28 21.5 29 19 C30 16 28 12 26 8Z" fill="#FFE08A"/>
-  <!-- Torch body -->
-  <rect x="23" y="21" width="6" height="16" rx="1.5" fill="#142D5C"/>
-  <!-- Torch base -->
-  <path d="M21 37 L31 37 L32 43 L20 43Z" fill="#142D5C"/>
-  <!-- Book left page -->
-  <path d="M26 43 C20 41 11 43 7 47 L7 57 C11 53 20 52 26 54Z" fill="#EBF0F8" stroke="#142D5C" stroke-width="1.5"/>
-  <!-- Book right page -->
-  <path d="M26 43 C32 41 41 43 45 47 L45 57 C41 53 32 52 26 54Z" fill="#EBF0F8" stroke="#142D5C" stroke-width="1.5"/>
-  <!-- Book spine -->
-  <rect x="24.5" y="43" width="3" height="11" fill="#142D5C"/>
-  <!-- Divider -->
-  <line x1="60" y1="10" x2="60" y2="54" stroke="#D1D5DB" stroke-width="1"/>
-  <!-- Wordmark -->
-  <text x="73" y="35" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="bold" fill="#142D5C" letter-spacing="1.5">PREP UP</text>
-  <!-- Tagline -->
-  <text x="73" y="50" font-family="Arial, Helvetica, sans-serif" font-size="8.5" fill="#9CA0AA" letter-spacing="2.8">COLLEGE ACCESS FOR ALL</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 132" fill="none">
+  <!-- "PREP" — width locked via textLength so layout is predictable -->
+  <text x="0" y="82" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-size="68" font-weight="700" fill="#142D5C" textLength="160" lengthAdjust="spacingAndGlyphs">PREP</text>
+
+  <!-- Center icon: torch + open book. Symmetric gap on each side. -->
+  <g transform="translate(176, 14)">
+    <!-- Outer flame -->
+    <path d="M28 0 C22 6 14 16 16 26 C18 34 38 34 40 26 C42 16 34 6 28 0Z" fill="#F2B736"/>
+    <!-- Inner flame -->
+    <path d="M28 7 C24 12 20 19 22 24 C23 26 33 26 34 24 C36 19 32 12 28 7Z" fill="#FFD970"/>
+    <!-- Torch handle -->
+    <rect x="22" y="26" width="12" height="22" fill="#F2B736"/>
+    <line x1="25" y1="29" x2="25" y2="46" stroke="#142D5C" stroke-width="0.7" opacity="0.7"/>
+    <line x1="31" y1="29" x2="31" y2="46" stroke="#142D5C" stroke-width="0.7" opacity="0.7"/>
+    <!-- Torch base -->
+    <path d="M19 48 L37 48 L40 56 L16 56 Z" fill="#F2B736"/>
+    <!-- Book pages -->
+    <path d="M28 56 C18 53 5 55 0 62 L0 78 C5 71 18 69 28 71 Z" fill="#142D5C"/>
+    <path d="M28 56 C38 53 51 55 56 62 L56 78 C51 71 38 69 28 71 Z" fill="#142D5C"/>
+    <!-- Spine -->
+    <rect x="26" y="56" width="4" height="15" fill="#142D5C"/>
+    <!-- Gold detail on book pages -->
+    <path d="M4 64 Q 12 62 23 64" stroke="#F2B736" stroke-width="0.7" fill="none" opacity="0.85"/>
+    <path d="M33 64 Q 44 62 52 64" stroke="#F2B736" stroke-width="0.7" fill="none" opacity="0.85"/>
+  </g>
+
+  <!-- "UP" -->
+  <text x="248" y="82" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-size="68" font-weight="700" fill="#142D5C" textLength="90" lengthAdjust="spacingAndGlyphs">UP</text>
+
+  <!-- Gold rule — spans wordmark only, not full viewBox -->
+  <line x1="0" y1="104" x2="338" y2="104" stroke="#F2B736" stroke-width="2.5"/>
+
+  <!-- Tagline centered on wordmark midpoint -->
+  <text x="169" y="120" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-size="12" font-weight="700" fill="#142D5C" letter-spacing="3.5">COLLEGE ACCESS FOR ALL</text>
 </svg>

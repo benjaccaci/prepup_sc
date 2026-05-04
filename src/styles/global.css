@@ -29,14 +29,14 @@
     font-feature-settings: "ss01", "ss02", "kern";
   }
 
-  /* Variable axis warmth on Fraunces */
+  /* Variable axis tuning on Newsreader */
   .font-display, .font-serif, h1, h2, h3, h4 {
-    font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 0;
+    font-variation-settings: "opsz" 72;
   }
 
   /* Smaller display text uses smaller opsz */
   .font-display-sm {
-    font-variation-settings: "opsz" 36, "SOFT" 50, "WONK" 0;
+    font-variation-settings: "opsz" 24;
   }
 }
 

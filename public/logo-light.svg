@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 132" fill="none">
+  <!-- "PREP" — width locked via textLength so layout is predictable -->
+  <text x="0" y="82" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-size="68" font-weight="700" fill="#FAF7F0" textLength="160" lengthAdjust="spacingAndGlyphs">PREP</text>
+
+  <!-- Center icon: torch + open book. Symmetric gap on each side. -->
+  <g transform="translate(176, 14)">
+    <!-- Outer flame -->
+    <path d="M28 0 C22 6 14 16 16 26 C18 34 38 34 40 26 C42 16 34 6 28 0Z" fill="#F2B736"/>
+    <!-- Inner flame -->
+    <path d="M28 7 C24 12 20 19 22 24 C23 26 33 26 34 24 C36 19 32 12 28 7Z" fill="#FFD970"/>
+    <!-- Torch handle -->
+    <rect x="22" y="26" width="12" height="22" fill="#F2B736"/>
+    <line x1="25" y1="29" x2="25" y2="46" stroke="#FAF7F0" stroke-width="0.7" opacity="0.5"/>
+    <line x1="31" y1="29" x2="31" y2="46" stroke="#FAF7F0" stroke-width="0.7" opacity="0.5"/>
+    <!-- Torch base -->
+    <path d="M19 48 L37 48 L40 56 L16 56 Z" fill="#F2B736"/>
+    <!-- Book pages (paper colour for dark backgrounds) -->
+    <path d="M28 56 C18 53 5 55 0 62 L0 78 C5 71 18 69 28 71 Z" fill="#FAF7F0"/>
+    <path d="M28 56 C38 53 51 55 56 62 L56 78 C51 71 38 69 28 71 Z" fill="#FAF7F0"/>
+    <!-- Spine -->
+    <rect x="26" y="56" width="4" height="15" fill="#FAF7F0"/>
+    <!-- Gold detail -->
+    <path d="M4 64 Q 12 62 23 64" stroke="#F2B736" stroke-width="0.7" fill="none" opacity="0.85"/>
+    <path d="M33 64 Q 44 62 52 64" stroke="#F2B736" stroke-width="0.7" fill="none" opacity="0.85"/>
+  </g>
+
+  <!-- "UP" -->
+  <text x="248" y="82" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-size="68" font-weight="700" fill="#FAF7F0" textLength="90" lengthAdjust="spacingAndGlyphs">UP</text>
+
+  <!-- Gold rule — spans wordmark only -->
+  <line x1="0" y1="104" x2="338" y2="104" stroke="#F2B736" stroke-width="2.5"/>
+
+  <!-- Tagline centered on wordmark midpoint -->
+  <text x="169" y="120" text-anchor="middle" font-family="Newsreader, Georgia, 'Times New Roman', serif" font-size="12" font-weight="700" fill="#FAF7F0" letter-spacing="3.5">COLLEGE ACCESS FOR ALL</text>
+</svg>

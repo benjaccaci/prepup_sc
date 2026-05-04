@@ -16,8 +16,8 @@ const { name, bio, initials, reversed = false, index = 0 } = Astro.props;
   data-reveal-delay={index * 100}
 >
   <!-- Photo placeholder column -->
-  <div class={`md:col-span-5 ${reversed ? 'md:col-start-8 md:row-start-1' : ''}`}>
-    <div class="relative aspect-[4/5] overflow-hidden rounded-sm group">
+  <div class={`md:col-span-3 ${reversed ? 'md:col-start-10 md:row-start-1' : ''}`}>
+    <div class="relative aspect-[4/5] max-w-[240px] overflow-hidden rounded-sm group">
 
       <!-- Background gradient -->
       <div class="absolute inset-0 bg-gradient-to-br from-navy via-navy-dark to-navy-ink"></div>
@@ -37,27 +37,27 @@ const { name, bio, initials, reversed = false, index = 0 } = Astro.props;
       <!-- Initials -->
       <div class="absolute inset-0 flex items-center justify-center">
         <span
-          class="font-display font-light text-[8rem] md:text-[10rem] text-gold/80 tracking-tightest leading-none transition-transform duration-700 ease-out group-hover:scale-105"
-          style="font-variation-settings: 'opsz' 144, 'SOFT' 30;"
+          class="font-display font-light text-[5rem] md:text-[6rem] text-gold/80 tracking-tightest leading-none transition-transform duration-700 ease-out group-hover:scale-105"
+          style="font-variation-settings: 'opsz' 72;"
         >
           {initials}
         </span>
       </div>
 
       <!-- Frame indicators -->
-      <span class="absolute top-5 left-5 editorial-label-light">Photo Forthcoming</span>
-      <span class="absolute bottom-5 right-5 font-display text-paper/35 text-sm tabular-nums">
+      <span class="absolute top-3 left-3 font-mono text-[9px] uppercase tracking-[0.22em] text-paper/45 font-medium">Photo</span>
+      <span class="absolute bottom-3 right-3 font-display text-paper/35 text-xs tabular-nums">
         № 0{index + 1}
       </span>
 
       <!-- Top frame line -->
-      <span class="absolute top-0 left-5 right-5 h-px bg-paper/15"></span>
-      <span class="absolute bottom-0 left-5 right-5 h-px bg-paper/15"></span>
+      <span class="absolute top-0 left-3 right-3 h-px bg-paper/15"></span>
+      <span class="absolute bottom-0 left-3 right-3 h-px bg-paper/15"></span>
     </div>
   </div>
 
   <!-- Bio column -->
-  <div class={`md:col-span-7 md:pt-6 ${reversed ? 'md:col-start-1 md:row-start-1' : ''}`}>
+  <div class={`md:col-span-9 md:pt-2 ${reversed ? 'md:col-start-1 md:row-start-1' : ''}`}>
 
     <p class="editorial-label mb-3">Founder · 0{index + 1}</p>
 

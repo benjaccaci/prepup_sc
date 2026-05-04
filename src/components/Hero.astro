@@ -31,25 +31,39 @@ const {
   <div class="relative container-x-wide w-full py-24 md:py-28">
 
     <!-- Top meta line -->
-    <div class="flex items-baseline justify-between mb-14 md:mb-20" data-reveal>
+    <div class="flex items-baseline justify-between mb-12 md:mb-16" data-reveal>
       <span class="editorial-label-light">{meta}</span>
       <span class="font-display font-light text-xl md:text-2xl text-paper/40 tabular-nums tracking-wider">№ {edition}</span>
     </div>
 
-    <!-- Headline -->
-    <h1
-      class="font-display font-medium leading-[0.92] tracking-tightest text-paper max-w-6xl"
-      style="font-size: clamp(2.75rem, 9vw, 9rem);"
-      data-reveal
-      data-reveal-delay="80"
-    >
-      <span class="block">College</span>
-      <span class="block">Access</span>
-      <span class="relative inline-block">
-        for <span class="italic font-light">All</span>
-        <span class="absolute -bottom-1 md:-bottom-2 left-0 right-0 h-[5px] md:h-[8px] bg-gold origin-left animate-draw-line rounded-full"></span>
-      </span>
-    </h1>
+    <!-- Headline + logo (side-by-side on desktop, stacked on mobile) -->
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-10 md:gap-12">
+
+      <!-- Headline -->
+      <h1
+        class="font-display font-medium leading-[0.92] tracking-tightest text-paper md:flex-1 max-w-3xl"
+        style="font-size: clamp(2.25rem, 6vw, 5.75rem);"
+        data-reveal
+        data-reveal-delay="60"
+      >
+        <span class="block">College</span>
+        <span class="block">Access</span>
+        <span class="relative inline-block">
+          for <span class="italic font-light">All</span>
+          <span class="absolute -bottom-1 md:-bottom-2 left-0 right-0 h-[4px] md:h-[6px] bg-gold origin-left animate-draw-line rounded-full"></span>
+        </span>
+      </h1>
+
+      <!-- Big logo -->
+      <div class="md:shrink-0 md:pb-4" data-reveal data-reveal-delay="180">
+        <img
+          src="/logo-light.svg"
+          alt="Prep Up — College Access for All"
+          class="h-24 sm:h-28 md:h-32 lg:h-40 w-auto"
+        />
+      </div>
+
+    </div>
 
     <!-- Subhead -->
     <p
