@@ -127,15 +127,22 @@ import CTAStrip from '../components/CTAStrip.astro';
         <!-- Stuart -->
         <article class="group" data-reveal>
           <div class="flex items-start gap-6 mb-7">
-            <div class="shrink-0 w-20 h-20 rounded-full bg-gradient-to-br from-navy via-navy-dark to-navy-ink flex items-center justify-center transition-transform duration-700 group-hover:rotate-[6deg] relative overflow-hidden">
-              <span class="font-display text-2xl font-light text-gold/85 tracking-tighter relative z-10">ST</span>
-              <span
-                class="absolute inset-0 opacity-30 mix-blend-overlay"
-                style="background-image: radial-gradient(circle at 30% 30%, rgba(242,183,54,0.4), transparent 60%);"
-              ></span>
+            <div class="shrink-0 relative w-20 h-20">
+              <!-- Subtle gold ring on hover -->
+              <div class="absolute -inset-1 rounded-full border border-gold/0 transition-all duration-500 group-hover:border-gold/50 group-hover:-inset-1.5 pointer-events-none"></div>
+              <!-- Photo -->
+              <div class="relative w-20 h-20 rounded-full overflow-hidden bg-paper-warm border border-navy-ink/10 transition-transform duration-700 group-hover:rotate-[6deg]">
+                <img
+                  src="/images/founders/stuart.jpg"
+                  alt="Stuart Titus, co-founder of Prep Up"
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
             <div class="flex-1 pt-2">
-              <p class="editorial-label mb-2">Founder · 01</p>
+              <p class="editorial-label mb-2">Founder &middot; 01</p>
               <h3 class="font-display text-2xl md:text-3xl font-medium text-navy-ink tracking-tight">Stuart Titus</h3>
             </div>
           </div>
@@ -147,15 +154,22 @@ import CTAStrip from '../components/CTAStrip.astro';
         <!-- Lucia -->
         <article class="group" data-reveal data-reveal-delay="120">
           <div class="flex items-start gap-6 mb-7">
-            <div class="shrink-0 w-20 h-20 rounded-full bg-gradient-to-br from-navy via-navy-dark to-navy-ink flex items-center justify-center transition-transform duration-700 group-hover:rotate-[6deg] relative overflow-hidden">
-              <span class="font-display text-2xl font-light text-gold/85 tracking-tighter relative z-10">LJ</span>
-              <span
-                class="absolute inset-0 opacity-30 mix-blend-overlay"
-                style="background-image: radial-gradient(circle at 30% 30%, rgba(242,183,54,0.4), transparent 60%);"
-              ></span>
+            <div class="shrink-0 relative w-20 h-20">
+              <!-- Subtle gold ring on hover -->
+              <div class="absolute -inset-1 rounded-full border border-gold/0 transition-all duration-500 group-hover:border-gold/50 group-hover:-inset-1.5 pointer-events-none"></div>
+              <!-- Photo -->
+              <div class="relative w-20 h-20 rounded-full overflow-hidden bg-paper-warm border border-navy-ink/10 transition-transform duration-700 group-hover:rotate-[6deg]">
+                <img
+                  src="/images/founders/lucia.jpg"
+                  alt="Lucia Jaccaci, co-founder of Prep Up"
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
             <div class="flex-1 pt-2">
-              <p class="editorial-label mb-2">Founder · 02</p>
+              <p class="editorial-label mb-2">Founder &middot; 02</p>
               <h3 class="font-display text-2xl md:text-3xl font-medium text-navy-ink tracking-tight">Lucia Jaccaci</h3>
             </div>
           </div>
