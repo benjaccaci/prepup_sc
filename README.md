@@ -64,13 +64,35 @@ All content lives in the `.astro` files under `src/pages/`. You can edit them di
 
 ## Swapping in Real Assets
 
+### Logos
+
 | Asset | Current state | Where to replace |
 |-------|--------------|-----------------|
-| Horizontal logo | SVG placeholder (text + torch drawing) | Replace `public/logo.svg` |
-| Badge logo | SVG placeholder (circular with "PU") | Replace `public/logo-badge.svg` |
-| Favicon | SVG placeholder (navy circle with torch) | Replace `public/favicon.svg` |
-| Founder photos | Navy placeholder blocks with initials | Pass a real `img` into `FounderCard.astro`, or add a `photoSrc` prop |
-| Student/hero photos | Not yet used | Add to `public/images/`, reference in `Hero.astro` |
+| Horizontal logo (light bg) | SVG approximation | Replace `public/logo.svg` |
+| Horizontal logo (dark bg) | SVG approximation | Replace `public/logo-light.svg` |
+| Badge logo | SVG approximation | Replace `public/logo-badge.svg` |
+| Favicon | SVG placeholder | Replace `public/favicon.svg` |
+
+### Photos
+
+The site already references these image paths. **Save your photo files at exactly these paths and they'll appear automatically** — no code changes needed.
+
+| Path | What it should be | Used on |
+|------|-------------------|---------|
+| `public/images/founders/stuart.jpg` | Stuart's headshot. Square or portrait crop. The on-site display masks it to a circle, so any aspect-ratio works as long as Stuart's face is roughly centered. | About page (FounderCard) |
+| `public/images/founders/lucia.jpg` | Lucia's headshot. Same notes as above. | About page (FounderCard) |
+| `public/images/students/cohort-outdoor.jpg` | Wide group photo (cohort outside, energetic). | Home page — "In practice" spread |
+| `public/images/students/cohort-studying.jpg` | Cohort working together (laptops/books/desks). | Program page — "Process at work" spread |
+| `public/images/students/graduation.jpg` | Aspirational graduation moment. | Support page — donation banner |
+
+**Filename tips:**
+- All-lowercase, no spaces. Use hyphens to separate words (already handled in the suggested names).
+- `.jpg` and `.png` both work. Use `.png` if a photo has transparency (e.g., a circular crop on a transparent background).
+- For best Lighthouse scores, optimize source images to ~1600px on the longest edge before saving. Astro will further optimize them at build time if you switch from `<img>` to `<Image>` later.
+
+If you want to use photos at different paths, edit the `src` attributes in:
+- `src/pages/about.astro` (founder photos)
+- `src/pages/index.astro`, `src/pages/program.astro`, `src/pages/support.astro` (student photos)
 
 ---
 

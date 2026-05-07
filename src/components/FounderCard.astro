@@ -3,11 +3,21 @@ interface Props {
   name: string;
   bio: string;
   initials: string;
+  photoSrc?: string;
+  photoAlt?: string;
   reversed?: boolean;
   index?: number;
 }
 
-const { name, bio, initials, reversed = false, index = 0 } = Astro.props;
+const {
+  name,
+  bio,
+  initials,
+  photoSrc,
+  photoAlt,
+  reversed = false,
+  index = 0,
+} = Astro.props;
 ---
 
 <article
@@ -15,51 +25,81 @@ const { name, bio, initials, reversed = false, index = 0 } = Astro.props;
   data-reveal
   data-reveal-delay={index * 100}
 >
-  <!-- Photo placeholder column -->
+  <!-- Photo column -->
   <div class={`md:col-span-3 ${reversed ? 'md:col-start-10 md:row-start-1' : ''}`}>
-    <div class="relative aspect-[4/5] max-w-[240px] overflow-hidden rounded-sm group">
+    <div class="relative w-full max-w-[260px] group">
 
-      <!-- Background gradient -->
-      <div class="absolute inset-0 bg-gradient-to-br from-navy via-navy-dark to-navy-ink"></div>
+      <!-- Decorative gold dashed arc (rotates subtly into view) -->
+      <svg
+        class="absolute -inset-3 w-[calc(100%+1.5rem)] h-[calc(100%+1.5rem)] pointer-events-none opacity-50 transition-all duration-700 ease-out group-hover:opacity-90 group-hover:rotate-[8deg]"
+        viewBox="0 0 100 100"
+        fill="none"
+        aria-hidden="true"
+      >
+        <circle
+          cx="50"
+          cy="50"
+          r="49"
+          stroke="#F2B736"
+          stroke-width="0.4"
+          stroke-dasharray="1.5 3"
+        />
+      </svg>
 
-      <!-- Subtle gold glow -->
+      <!-- Gold ring that animates in on hover -->
       <div
-        class="absolute inset-0 mix-blend-overlay transition-opacity duration-700 group-hover:opacity-80"
-        style="background-image: radial-gradient(circle at 30% 30%, rgba(242,183,54,0.45) 0%, transparent 55%);"
+        class="absolute -inset-1.5 rounded-full border border-gold/0 transition-all duration-700 ease-out group-hover:border-gold/55 group-hover:-inset-2 pointer-events-none"
       ></div>
 
-      <!-- Grain overlay -->
-      <div
-        class="absolute inset-0 opacity-[0.12] mix-blend-overlay pointer-events-none"
-        style="background-image: url(&quot;data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"
-      ></div>
+      <!-- Photo / placeholder frame (always circular) -->
+      <div class="relative aspect-square rounded-full overflow-hidden bg-paper-warm border border-navy-ink/10 shadow-xl shadow-navy-ink/[0.06]">
 
-      <!-- Initials -->
-      <div class="absolute inset-0 flex items-center justify-center">
-        <span
-          class="font-display font-light text-[5rem] md:text-[6rem] text-gold/80 tracking-tightest leading-none transition-transform duration-700 ease-out group-hover:scale-105"
-          style="font-variation-settings: 'opsz' 72;"
-        >
-          {initials}
-        </span>
+        {photoSrc ? (
+          <>
+            <img
+              src={photoSrc}
+              alt={photoAlt ?? `Portrait of ${name}`}
+              class="w-full h-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
+              loading="lazy"
+              decoding="async"
+            />
+            <!-- Subtle warm tonal shift to harmonize with paper bg -->
+            <div class="absolute inset-0 mix-blend-multiply pointer-events-none" style="background: radial-gradient(circle at 50% 100%, rgba(15,31,61,0.06), transparent 60%);"></div>
+            <!-- Inner ring (separates photo from outer border) -->
+            <div class="absolute inset-0 rounded-full ring-1 ring-inset ring-paper-warm/30 pointer-events-none"></div>
+          </>
+        ) : (
+          <>
+            <!-- Placeholder: navy gradient with initials -->
+            <div class="absolute inset-0 bg-gradient-to-br from-navy via-navy-dark to-navy-ink"></div>
+            <div
+              class="absolute inset-0 mix-blend-overlay"
+              style="background-image: radial-gradient(circle at 30% 30%, rgba(242,183,54,0.45) 0%, transparent 55%);"
+            ></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span
+                class="font-display font-light text-[5rem] md:text-[6rem] text-gold/80 tracking-tightest leading-none"
+                style="font-variation-settings: 'opsz' 72;"
+              >
+                {initials}
+              </span>
+            </div>
+          </>
+        )}
+
       </div>
 
-      <!-- Frame indicators -->
-      <span class="absolute top-3 left-3 font-mono text-[9px] uppercase tracking-[0.22em] text-paper/45 font-medium">Photo</span>
-      <span class="absolute bottom-3 right-3 font-display text-paper/35 text-xs tabular-nums">
-        № 0{index + 1}
-      </span>
-
-      <!-- Top frame line -->
-      <span class="absolute top-0 left-3 right-3 h-px bg-paper/15"></span>
-      <span class="absolute bottom-0 left-3 right-3 h-px bg-paper/15"></span>
+      <!-- Editorial caption beneath photo -->
+      <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-navy-ink/45 mt-5 text-center">
+        № 0{index + 1} &middot; {initials}
+      </p>
     </div>
   </div>
 
   <!-- Bio column -->
   <div class={`md:col-span-9 md:pt-2 ${reversed ? 'md:col-start-1 md:row-start-1' : ''}`}>
 
-    <p class="editorial-label mb-3">Founder · 0{index + 1}</p>
+    <p class="editorial-label mb-3">Founder &middot; 0{index + 1}</p>
 
     <h3 class="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-navy-ink leading-[0.95] tracking-tightest mb-6">
       {name}

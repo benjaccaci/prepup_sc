@@ -30,26 +30,56 @@ const donateUrl = '#';
 
     <div class="relative container-wide">
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-
-        <div class="lg:col-span-7" data-reveal>
-          <div class="flex items-center gap-3 mb-8">
-            <span class="editorial-label">№ 02</span>
-            <span class="h-px w-10 bg-navy-ink/20"></span>
-            <span class="editorial-label">Donate</span>
-          </div>
-
-          <h2 class="font-display text-5xl md:text-7xl lg:text-[5.5rem] font-medium text-navy-ink leading-[0.95] tracking-tightest mb-8">
-            Make a gift<br/>
-            <span class="italic font-light text-gold-dark">to Prep Up.</span>
-          </h2>
-
-          <p class="text-navy-ink/75 leading-[1.7] text-base md:text-lg font-light max-w-xl">
-            Every contribution funds free college counseling for a Southcoast student &mdash; with no fees, no tuition, and no fundraising minimums.
-          </p>
+      <!-- Editorial header -->
+      <div class="mb-14 md:mb-20" data-reveal>
+        <div class="flex items-center gap-3 mb-8">
+          <span class="editorial-label">№ 02</span>
+          <span class="h-px w-10 bg-navy-ink/20"></span>
+          <span class="editorial-label">Donate</span>
         </div>
 
-        <div class="lg:col-span-5 flex flex-col gap-6 items-start lg:items-stretch" data-reveal data-reveal-delay="120">
+        <h2 class="font-display text-5xl md:text-7xl lg:text-[5.5rem] font-medium text-navy-ink leading-[0.95] tracking-tightest max-w-4xl">
+          Make a gift <span class="italic font-light text-gold-dark">to Prep Up.</span>
+        </h2>
+      </div>
+
+      <!-- Photo + donate card side by side -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
+
+        <!-- Photo (left, larger) -->
+        <figure class="lg:col-span-7 relative" data-reveal data-reveal-delay="80">
+          <div class="relative aspect-[5/4] md:aspect-[6/5] lg:aspect-[5/4] overflow-hidden rounded-2xl bg-navy-ink shadow-2xl shadow-navy-ink/15">
+            <img
+              src="/images/students/graduation.jpg"
+              alt="Students at graduation, smiling in caps and gowns."
+              class="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+            <!-- Subtle warm tint to harmonize with paper-warm bg -->
+            <div
+              class="absolute inset-0 mix-blend-multiply pointer-events-none"
+              style="background: linear-gradient(180deg, rgba(250,247,240,0) 50%, rgba(15,31,61,0.18) 100%);"
+            ></div>
+            <!-- Top + bottom gold rules -->
+            <span class="absolute top-0 inset-x-0 h-px bg-gold/55"></span>
+            <span class="absolute bottom-0 inset-x-0 h-px bg-gold/45"></span>
+
+            <!-- Editorial corner markers -->
+            <span class="absolute top-5 left-5 font-mono text-[10px] uppercase tracking-[0.22em] text-paper font-medium mix-blend-difference">PLATE · 02</span>
+            <span class="absolute bottom-5 right-5 font-mono text-[10px] uppercase tracking-[0.22em] text-paper font-medium mix-blend-difference">MATRICULATION</span>
+          </div>
+          <figcaption class="font-display italic font-light text-base md:text-lg text-navy-ink/65 leading-relaxed mt-5 max-w-md">
+            The outcome &mdash; what every gift to Prep Up is funding.
+          </figcaption>
+        </figure>
+
+        <!-- Donate column (right) -->
+        <div class="lg:col-span-5 flex flex-col gap-6 lg:justify-center" data-reveal data-reveal-delay="180">
+
+          <p class="text-navy-ink/80 leading-[1.7] text-base md:text-lg font-light">
+            Every contribution funds free college counseling for a Southcoast student &mdash; with no fees, no tuition, and no fundraising minimums.
+          </p>
 
           <!-- Big donate button -->
           <a
@@ -60,7 +90,7 @@ const donateUrl = '#';
               <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-paper/50 mb-1">Give now</p>
               <p class="font-display text-2xl md:text-3xl font-medium tracking-tight">Donate to Prep Up</p>
             </div>
-            <span class="font-display text-3xl text-gold transition-transform duration-300 ease-out group-hover:translate-x-1">→</span>
+            <span class="font-display text-3xl text-gold transition-transform duration-300 ease-out group-hover:translate-x-1">&rarr;</span>
           </a>
 
           <!-- Mailing address aside -->

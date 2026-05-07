@@ -4,6 +4,7 @@ import PageHeader from '../components/PageHeader.astro';
 import PillarCard from '../components/PillarCard.astro';
 import YearCard from '../components/YearCard.astro';
 import Marquee from '../components/Marquee.astro';
+import StudentSpread from '../components/StudentSpread.astro';
 import CTAStrip from '../components/CTAStrip.astro';
 ---
 
@@ -87,10 +88,16 @@ import CTAStrip from '../components/CTAStrip.astro';
     </div>
   </section>
 
-  <!-- Gold divider -->
-  <div class="container-x-wide">
-    <div class="gold-divider"></div>
-  </div>
+  <!-- Editorial student spread: process at work -->
+  <StudentSpread
+    edition="03"
+    label="Process at work"
+    src="/images/students/cohort-studying.jpg"
+    alt="A Prep Up cohort working through college research together."
+    caption="Cohort sessions in motion. Research, essay workshops, financial-aid deep dives — done together, not alone."
+    aspect="wide"
+    variant="paper-warm"
+  />
 
   <!-- Four-year roadmap -->
   <section class="bg-paper-warm py-28 md:py-40 px-6 grain">

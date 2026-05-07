@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Marquee from '../components/Marquee.astro';
 import PillarCard from '../components/PillarCard.astro';
+import StudentSpread from '../components/StudentSpread.astro';
 import CTAStrip from '../components/CTAStrip.astro';
 ---
 
@@ -95,12 +96,23 @@ import CTAStrip from '../components/CTAStrip.astro';
     </div>
   </section>
 
+  <!-- Editorial student spread: cohort outdoors -->
+  <StudentSpread
+    edition="04"
+    label="In practice"
+    src="/images/students/cohort-outdoor.jpg"
+    alt="A cohort of Prep Up students together on campus."
+    caption="A Prep Up cohort. Students move through the four-year program together — building habits, sharing the search, and supporting one another to the finish."
+    aspect="wide"
+    variant="paper"
+  />
+
   <!-- Founders teaser -->
   <section class="bg-paper-warm py-28 md:py-40 px-6">
     <div class="container-x-wide">
       <div class="mb-20" data-reveal>
         <div class="flex items-center gap-3 mb-8">
-          <span class="editorial-label">№ 04</span>
+          <span class="editorial-label">№ 05</span>
           <span class="h-px w-10 bg-navy-ink/20"></span>
           <span class="editorial-label">The Team</span>
         </div>
@@ -165,7 +177,7 @@ import CTAStrip from '../components/CTAStrip.astro';
 
   <!-- Closing CTA -->
   <CTAStrip
-    eyebrow="Get involved · 05"
+    eyebrow="Get involved · 06"
     headline="Ready to invest in the next generation of"
     headlineAccent="Southcoast scholars?"
     primaryCTA={{ label: 'Get Involved', href: '/support' }}
