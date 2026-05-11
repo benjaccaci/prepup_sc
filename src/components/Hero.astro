@@ -54,12 +54,13 @@ const {
         </span>
       </h1>
 
-      <!-- Big logo -->
+      <!-- Big logo (rendered white on the dark hero via brightness-0 + invert filter; -->
+      <!-- drop the filter classes if a true white-on-transparent variant is ever added) -->
       <div class="md:shrink-0 md:pb-4" data-reveal data-reveal-delay="180">
         <img
-          src="/logo-light.svg"
+          src="/logo.png"
           alt="Prep Up — College Access for All"
-          class="h-24 sm:h-28 md:h-32 lg:h-40 w-auto"
+          class="h-24 sm:h-28 md:h-32 lg:h-40 w-auto brightness-0 invert"
         />
       </div>
 

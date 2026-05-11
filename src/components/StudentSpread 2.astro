@@ -1,0 +1,85 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  caption: string;
+  label: string;
+  edition: string;
+  /** "wide" = 16:8 cinematic strip; "tall" = 16:10; "feature" = 4:3 */
+  aspect?: 'wide' | 'tall' | 'feature';
+  /** Background context — controls overlay tinting for color cohesion */
+  variant?: 'paper' | 'paper-warm' | 'white';
+}
+
+const {
+  src,
+  alt,
+  caption,
+  label,
+  edition,
+  aspect = 'wide',
+  variant = 'paper',
+} = Astro.props;
+
+const aspectClass: Record<string, string> = {
+  wide: 'aspect-[16/8]',
+  tall: 'aspect-[16/10]',
+  feature: 'aspect-[4/3] md:aspect-[16/9]',
+};
+
+const bgClass: Record<string, string> = {
+  paper: 'bg-paper',
+  'paper-warm': 'bg-paper-warm',
+  white: 'bg-white',
+};
+---
+
+<section class={`${bgClass[variant]} py-20 md:py-28 overflow-hidden`}>
+
+  <!-- Top label row -->
+  <div class="container-x-wide mb-8 md:mb-10" data-reveal>
+    <div class="flex items-center gap-3">
+      <span class="editorial-label">№ {edition}</span>
+      <span class="h-px w-10 bg-navy-ink/20"></span>
+      <span class="editorial-label">{label}</span>
+    </div>
+  </div>
+
+  <!-- Image — full-bleed beyond the container for impact -->
+  <div class="relative" data-reveal data-reveal-delay="120">
+    <div class={`relative ${aspectClass[aspect]} overflow-hidden`}>
+
+      <!-- Photo -->
+      <img
+        src={src}
+        alt={alt}
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+        decoding="async"
+      />
+
+      <!-- Subtle warm tonal harmony — pulls colors toward the paper palette -->
+      <div
+        class="absolute inset-0 mix-blend-multiply pointer-events-none"
+        style="background: linear-gradient(180deg, rgba(250,247,240,0) 0%, rgba(250,247,240,0) 60%, rgba(15,31,61,0.08) 100%);"
+      ></div>
+
+      <!-- Top edge: thin gold rule for editorial framing -->
+      <span class="absolute top-0 inset-x-0 h-px bg-gold/50"></span>
+      <!-- Bottom edge: thin gold rule -->
+      <span class="absolute bottom-0 inset-x-0 h-px bg-gold/40"></span>
+
+      <!-- Editorial corner markers -->
+      <span class="absolute top-5 left-5 md:left-10 font-mono text-[10px] uppercase tracking-[0.22em] text-paper/85 mix-blend-difference">PLATE · {edition}</span>
+      <span class="absolute bottom-5 right-5 md:right-10 font-mono text-[10px] uppercase tracking-[0.22em] text-paper/85 mix-blend-difference">PREP UP</span>
+    </div>
+  </div>
+
+  <!-- Caption -->
+  <figcaption class="container-x-wide mt-7 md:mt-10" data-reveal data-reveal-delay="240">
+    <p class="font-display italic font-light text-base md:text-xl text-navy-ink/70 leading-relaxed max-w-2xl">
+      {caption}
+    </p>
+  </figcaption>
+
+</section>

@@ -66,12 +66,13 @@ All content lives in the `.astro` files under `src/pages/`. You can edit them di
 
 ### Logos
 
-| Asset | Current state | Where to replace |
+| Asset | Current state | Notes |
 |-------|--------------|-----------------|
-| Horizontal logo (light bg) | SVG approximation | Replace `public/logo.svg` |
-| Horizontal logo (dark bg) | SVG approximation | Replace `public/logo-light.svg` |
-| Badge logo | SVG approximation | Replace `public/logo-badge.svg` |
-| Favicon | SVG placeholder | Replace `public/favicon.svg` |
+| `public/logo.png` | Real horizontal wordmark, transparent background | Used on navbar and Home Hero. On the Hero (dark bg) it gets a CSS `brightness-0 invert` filter to render as a white silhouette. |
+| `public/logo-badge.png` | Real circular badge, transparent background | Used in the footer brand block. |
+| `public/favicon.svg` | SVG placeholder | Replace if/when the designer provides one. |
+
+**For a proper white-with-gold-flame variant of the wordmark** (so the Hero shows full color instead of a silhouette): save it at `public/logo-light.png` and edit `src/components/Hero.astro` — change `src="/logo.png"` to `src="/logo-light.png"` and drop `brightness-0 invert` from the class list.
 
 ### Photos
 
