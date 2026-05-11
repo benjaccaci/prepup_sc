@@ -41,13 +41,25 @@ const { primaryCTA, secondaryCTA } = Astro.props;
         </span>
       </h1>
 
-      <!-- Logo: circular badge (full color, self-contained — no backing needed) -->
+      <!-- Hero photo: portrait-cropped graduation moment, framed in rounded corners with subtle gold rules -->
       <div class="md:shrink-0 flex justify-center md:justify-end" data-reveal data-reveal-delay="180">
-        <img
-          src="/logo-badge.png"
-          alt="Prep Up — College Access for All"
-          class="h-56 sm:h-64 md:h-72 lg:h-80 xl:h-[22rem] w-auto drop-shadow-2xl"
-        />
+        <figure class="relative w-72 sm:w-80 md:w-96 lg:w-[26rem] xl:w-[28rem] aspect-[4/5] overflow-hidden rounded-2xl shadow-2xl shadow-black/50 ring-1 ring-paper/10">
+          <img
+            src="/images/students/graduation_title.jpg"
+            alt="A Prep Up student at their college graduation."
+            class="w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
+          />
+          <!-- subtle bottom-to-top navy gradient so the photo blends into the dark hero -->
+          <div
+            class="absolute inset-0 pointer-events-none mix-blend-multiply"
+            style="background: linear-gradient(180deg, rgba(15,31,61,0) 55%, rgba(10,24,48,0.35) 100%);"
+          ></div>
+          <!-- editorial gold rules top + bottom -->
+          <span class="absolute top-0 inset-x-0 h-px bg-gold/65"></span>
+          <span class="absolute bottom-0 inset-x-0 h-px bg-gold/55"></span>
+        </figure>
       </div>
 
     </div>
