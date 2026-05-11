@@ -5,18 +5,11 @@ interface CTA {
 }
 
 interface Props {
-  edition?: string;
-  meta?: string;
   primaryCTA?: CTA;
   secondaryCTA?: CTA;
 }
 
-const {
-  edition = '01',
-  meta = 'Est. 2024 — Southcoast, Massachusetts',
-  primaryCTA,
-  secondaryCTA,
-} = Astro.props;
+const { primaryCTA, secondaryCTA } = Astro.props;
 ---
 
 <section class="relative bg-navy-dark text-paper grain overflow-hidden min-h-[88vh] flex items-center">
@@ -30,14 +23,8 @@ const {
 
   <div class="relative container-x-wide w-full py-24 md:py-28">
 
-    <!-- Top meta line -->
-    <div class="flex items-baseline justify-between mb-12 md:mb-16" data-reveal>
-      <span class="editorial-label-light">{meta}</span>
-      <span class="font-display font-light text-xl md:text-2xl text-paper/40 tabular-nums tracking-wider">№ {edition}</span>
-    </div>
-
     <!-- Headline + logo (side-by-side on desktop, stacked on mobile) -->
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-10 md:gap-12">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-10 md:gap-12">
 
       <!-- Headline -->
       <h1
@@ -54,13 +41,12 @@ const {
         </span>
       </h1>
 
-      <!-- Big logo (rendered white on the dark hero via brightness-0 + invert filter; -->
-      <!-- drop the filter classes if a true white-on-transparent variant is ever added) -->
-      <div class="md:shrink-0 md:pb-4" data-reveal data-reveal-delay="180">
+      <!-- Logo: circular badge (full color, self-contained — no backing needed) -->
+      <div class="md:shrink-0 flex justify-center md:justify-end" data-reveal data-reveal-delay="180">
         <img
-          src="/logo.png"
+          src="/logo-badge.png"
           alt="Prep Up — College Access for All"
-          class="h-24 sm:h-28 md:h-32 lg:h-40 w-auto brightness-0 invert"
+          class="h-56 sm:h-64 md:h-72 lg:h-80 xl:h-[22rem] w-auto drop-shadow-2xl"
         />
       </div>
 

@@ -14,29 +14,20 @@ import CTAStrip from '../components/CTAStrip.astro';
 >
 
   <PageHeader
-    edition="03"
-    label="What We Offer"
     title="A four-year"
     titleAccent="developmental roadmap."
-    subtitle="From 9th grade through matriculation, every Prep Up student moves through a structured, cohort-based program designed to translate potential into placement."
+    subtitle="From 9th grade through matriculation, every Prep Up student moves through a structured, cohort-based program."
   />
 
   <!-- Intro paragraph -->
   <section class="py-20 md:py-28 px-6">
     <div class="container-narrow">
-      <div class="flex items-center gap-3 mb-8" data-reveal>
-        <span class="editorial-label">Overview</span>
-        <span class="h-px w-10 bg-navy-ink/20"></span>
-        <span class="editorial-label">The program in brief</span>
-      </div>
-
       <p
         class="font-display text-2xl md:text-3xl lg:text-[2.4rem] font-light leading-[1.3] tracking-tight text-navy-ink"
         data-reveal
-        data-reveal-delay="80"
       >
         Prep Up offers a high-touch, cohort-based college advisory program designed to close any
-        <span class="italic text-gold-dark">"guidance gap."</span> By adapting the counseling models of top independent schools for a community-based setting, we provide a scalable, multi-year architecture that meets students' needs and transforms their potential into collegiate success.
+        <span class="italic text-gold-dark">"guidance gap."</span> By adapting the counseling models of top independent schools for a community-based setting, we provide a structured four-year program that meets students' needs and transforms their potential into collegiate success.
       </p>
     </div>
   </section>
@@ -51,11 +42,6 @@ import CTAStrip from '../components/CTAStrip.astro';
   <section class="bg-white py-28 md:py-36 px-6">
     <div class="container-x-wide">
       <div class="mb-20 md:mb-24" data-reveal>
-        <div class="flex items-center gap-3 mb-8">
-          <span class="editorial-label">Methodology</span>
-          <span class="h-px w-10 bg-navy-ink/20"></span>
-          <span class="editorial-label">Three pillars</span>
-        </div>
         <h2 class="font-display text-4xl md:text-6xl lg:text-7xl font-medium text-navy-ink leading-[0.95] tracking-tightest max-w-5xl">
           The three-pillar<br/>
           <span class="italic font-light text-navy-ink/65">framework.</span>
@@ -82,7 +68,7 @@ import CTAStrip from '../components/CTAStrip.astro';
           number={3}
           index={2}
           title="Process Driven"
-          description="Utilizing essential criteria to drive each student's search process from day one through final enrollment decisions."
+          description="Utilizing essential criteria to drive each student's search process from 9th grade through senior year."
         />
       </div>
     </div>
@@ -90,11 +76,9 @@ import CTAStrip from '../components/CTAStrip.astro';
 
   <!-- Editorial student spread: process at work -->
   <StudentSpread
-    edition="03"
-    label="Process at work"
     src="/images/students/cohort-studying.jpg"
     alt="A Prep Up cohort working through college research together."
-    caption="Cohort sessions in motion. Research, essay workshops, financial-aid deep dives — done together, not alone."
+    caption="Cohort sessions: research, essays, financial aid — worked through together."
     aspect="wide"
     variant="paper-warm"
   />
@@ -103,11 +87,6 @@ import CTAStrip from '../components/CTAStrip.astro';
   <section class="bg-paper-warm py-28 md:py-40 px-6 grain">
     <div class="container-x-wide">
       <div class="mb-20 md:mb-24" data-reveal>
-        <div class="flex items-center gap-3 mb-8">
-          <span class="editorial-label">The Roadmap</span>
-          <span class="h-px w-10 bg-navy-ink/20"></span>
-          <span class="editorial-label">Year by year</span>
-        </div>
         <h2 class="font-display text-4xl md:text-6xl lg:text-7xl font-medium text-navy-ink leading-[0.95] tracking-tightest max-w-5xl">
           Four years.<br/>
           <span class="italic font-light text-navy-ink/65">One developmental arc.</span>
@@ -157,7 +136,7 @@ import CTAStrip from '../components/CTAStrip.astro';
           theme="The Search: Defining the Parameters & Personal Narrative"
           focus="List Building and Research"
           emphasis="Balancing cohort programming with individual counseling."
-          strategicOutcome={`Defining the "Right Fit." This is the core of our model. We move students from broad cohort programming into the more personalized work of the search process, ensuring a balanced list of college options informed by a deep dive into financial literacy for the entire family.`}
+          strategicOutcome={`Defining the "Right Fit." This is the core of our model. We move students from broad cohort programming into the more personalized work of the search process, ensuring a balanced list of college options informed by a thorough financial-aid review for the entire family.`}
           seasons={[
             { name: 'Fall', activities: 'College Research & Selection Strategy. Standardized Testing Plan.' },
             { name: 'Winter', activities: `Cohort Campus Visits & Access to College Admission and Financial Aid Officers. Understanding "Demonstrated Interest" and Impacted Majors.` },
@@ -187,7 +166,6 @@ import CTAStrip from '../components/CTAStrip.astro';
 
   <!-- CTA -->
   <CTAStrip
-    eyebrow="Enrollment"
     headline="Ready to learn more about enrolling in"
     headlineAccent="the Prep Up program?"
     primaryCTA={{ label: 'Contact Us', href: '/contact' }}

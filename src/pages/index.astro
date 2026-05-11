@@ -14,7 +14,6 @@ import CTAStrip from '../components/CTAStrip.astro';
 
   <!-- Hero -->
   <Hero
-    edition="01"
     primaryCTA={{ label: 'Explore the Program', href: '/program' }}
     secondaryCTA={{ label: 'Support our mission', href: '/support' }}
   />
@@ -25,16 +24,9 @@ import CTAStrip from '../components/CTAStrip.astro';
   <!-- Mission section: editorial pull-quote -->
   <section class="relative py-28 md:py-40 px-6">
     <div class="container-narrow">
-      <div class="flex items-center gap-3 mb-10" data-reveal>
-        <span class="editorial-label">№ 02</span>
-        <span class="h-px w-10 bg-navy-ink/20"></span>
-        <span class="editorial-label">Our Mission</span>
-      </div>
-
       <p
         class="font-display text-3xl md:text-5xl lg:text-[3.5rem] font-light leading-[1.15] tracking-tightest text-navy-ink"
         data-reveal
-        data-reveal-delay="80"
       >
         To provide <span class="italic">equitable</span>, process-driven college guidance to empower students in the Southcoast area
         <span class="relative inline-block">
@@ -43,11 +35,6 @@ import CTAStrip from '../components/CTAStrip.astro';
         </span>
         to higher education.
       </p>
-
-      <div class="mt-12 flex items-center gap-3" data-reveal data-reveal-delay="200">
-        <span class="h-px w-10 bg-gold"></span>
-        <span class="font-mono text-xs uppercase tracking-[0.22em] text-navy-ink/50">From the founders</span>
-      </div>
     </div>
   </section>
 
@@ -55,11 +42,6 @@ import CTAStrip from '../components/CTAStrip.astro';
   <section class="bg-white border-y border-navy-ink/[0.08] py-28 md:py-40 px-6">
     <div class="container-x-wide">
       <div class="mb-20 md:mb-24" data-reveal>
-        <div class="flex items-center gap-3 mb-8">
-          <span class="editorial-label">№ 03</span>
-          <span class="h-px w-10 bg-navy-ink/20"></span>
-          <span class="editorial-label">Methodology</span>
-        </div>
         <h2 class="font-display text-4xl md:text-6xl lg:text-7xl font-medium text-navy-ink leading-[0.95] tracking-tightest max-w-4xl">
           Three pillars guide<br/>
           <span class="italic font-light text-navy-ink/65">every student's journey.</span>
@@ -98,11 +80,9 @@ import CTAStrip from '../components/CTAStrip.astro';
 
   <!-- Editorial student spread: cohort outdoors -->
   <StudentSpread
-    edition="04"
-    label="In practice"
     src="/images/students/cohort-outdoor.jpg"
     alt="A cohort of Prep Up students together on campus."
-    caption="A Prep Up cohort. Students move through the four-year program together — building habits, sharing the search, and supporting one another to the finish."
+    caption="A Prep Up cohort. Students move through the four-year program together — building habits, sharing the search, and supporting each other through it."
     aspect="wide"
     variant="paper"
   />
@@ -111,14 +91,9 @@ import CTAStrip from '../components/CTAStrip.astro';
   <section class="bg-paper-warm py-28 md:py-40 px-6">
     <div class="container-x-wide">
       <div class="mb-20" data-reveal>
-        <div class="flex items-center gap-3 mb-8">
-          <span class="editorial-label">№ 05</span>
-          <span class="h-px w-10 bg-navy-ink/20"></span>
-          <span class="editorial-label">The Team</span>
-        </div>
         <h2 class="font-display text-4xl md:text-6xl lg:text-7xl font-medium text-navy-ink leading-[0.95] tracking-tightest max-w-5xl">
-          Built on six decades<br/>
-          <span class="italic font-light text-navy-ink/65">of independent school counseling.</span>
+          Lifelong Independent School<br/>
+          <span class="italic font-light text-navy-ink/65">Educators.</span>
         </h2>
       </div>
 
@@ -142,12 +117,11 @@ import CTAStrip from '../components/CTAStrip.astro';
               </div>
             </div>
             <div class="flex-1 pt-2">
-              <p class="editorial-label mb-2">Founder &middot; 01</p>
               <h3 class="font-display text-2xl md:text-3xl font-medium text-navy-ink tracking-tight">Stuart Titus</h3>
             </div>
           </div>
           <p class="text-navy-ink/70 leading-[1.65] font-light text-[15px]">
-            Three decades at independent schools in the Northeast, including Director of College Counseling at Mercersburg Academy, and counselor at Tabor Academy and San Francisco University High School.
+            Three decades at independent schools, including Director of College Counseling at Mercersburg Academy, and counselor at Tabor Academy and San Francisco University High School.
           </p>
         </article>
 
@@ -169,12 +143,11 @@ import CTAStrip from '../components/CTAStrip.astro';
               </div>
             </div>
             <div class="flex-1 pt-2">
-              <p class="editorial-label mb-2">Founder &middot; 02</p>
               <h3 class="font-display text-2xl md:text-3xl font-medium text-navy-ink tracking-tight">Lucia Jaccaci</h3>
             </div>
           </div>
           <p class="text-navy-ink/70 leading-[1.65] font-light text-[15px]">
-            30 years as educator and administrator in the U.S. and China. Helped develop college counseling at YK Pao School in Shanghai; currently volunteers at Our Sister's School in New Bedford.
+            30 years as an educator and administrator in the U.S. and China. Helped develop college counseling at YK Pao School in Shanghai; currently volunteers at Our Sister's School in New Bedford.
           </p>
         </article>
 
@@ -191,7 +164,6 @@ import CTAStrip from '../components/CTAStrip.astro';
 
   <!-- Closing CTA -->
   <CTAStrip
-    eyebrow="Get involved · 06"
     headline="Ready to invest in the next generation of"
     headlineAccent="Southcoast scholars?"
     primaryCTA={{ label: 'Get Involved', href: '/support' }}

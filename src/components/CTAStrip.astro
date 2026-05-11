@@ -5,14 +5,13 @@ interface CTA {
 }
 
 interface Props {
-  eyebrow?: string;
   headline: string;
   headlineAccent?: string;
   primaryCTA: CTA;
   secondaryCTA?: CTA;
 }
 
-const { eyebrow, headline, headlineAccent, primaryCTA, secondaryCTA } = Astro.props;
+const { headline, headlineAccent, primaryCTA, secondaryCTA } = Astro.props;
 ---
 
 <section class="relative bg-navy-dark text-paper grain overflow-hidden">
@@ -23,17 +22,9 @@ const { eyebrow, headline, headlineAccent, primaryCTA, secondaryCTA } = Astro.pr
   <div class="relative container-x-wide py-24 md:py-32">
     <div class="max-w-5xl">
 
-      {eyebrow && (
-        <div class="flex items-center gap-3 mb-8" data-reveal>
-          <span class="editorial-label-light">{eyebrow}</span>
-          <span class="h-px w-12 bg-paper/30"></span>
-        </div>
-      )}
-
       <h2
         class="font-display text-4xl md:text-6xl lg:text-7xl font-medium leading-[1.05] tracking-tightest mb-12 md:mb-14 text-paper"
         data-reveal
-        data-reveal-delay="80"
       >
         {headline}
         {headlineAccent && (
@@ -43,7 +34,7 @@ const { eyebrow, headline, headlineAccent, primaryCTA, secondaryCTA } = Astro.pr
         )}
       </h2>
 
-      <div class="flex flex-col sm:flex-row gap-6 sm:items-center" data-reveal data-reveal-delay="200">
+      <div class="flex flex-col sm:flex-row gap-6 sm:items-center" data-reveal data-reveal-delay="120">
         <a href={primaryCTA.href} class="btn-primary">
           <span>{primaryCTA.label}</span>
           <span class="arrow">→</span>

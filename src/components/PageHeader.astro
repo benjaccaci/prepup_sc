@@ -1,13 +1,11 @@
 ---
 interface Props {
-  edition: string;
-  label: string;
   title: string;
   titleAccent?: string;
   subtitle?: string;
 }
 
-const { edition, label, title, titleAccent, subtitle } = Astro.props;
+const { title, titleAccent, subtitle } = Astro.props;
 ---
 
 <header class="relative bg-navy-dark text-paper grain overflow-hidden">
@@ -20,20 +18,11 @@ const { edition, label, title, titleAccent, subtitle } = Astro.props;
 
   <div class="relative container-x-wide pt-24 pb-24 md:pt-32 md:pb-32">
 
-    <!-- Top meta -->
-    <div class="flex items-baseline justify-between mb-12 md:mb-20" data-reveal>
-      <span class="editorial-label-light">{label}</span>
-      <span class="font-display font-light text-xl md:text-2xl text-paper/40 tabular-nums tracking-wider">
-        № {edition}
-      </span>
-    </div>
-
     <!-- Headline -->
     <h1
       class="font-display font-medium leading-[0.95] tracking-tightest text-paper max-w-[1100px]"
       style="font-size: clamp(2.5rem, 7.5vw, 7.5rem);"
       data-reveal
-      data-reveal-delay="80"
     >
       {title}
       {titleAccent && (
@@ -48,7 +37,7 @@ const { edition, label, title, titleAccent, subtitle } = Astro.props;
       <p
         class="mt-10 md:mt-14 max-w-2xl text-base md:text-xl text-paper/70 leading-[1.65] font-light"
         data-reveal
-        data-reveal-delay="200"
+        data-reveal-delay="120"
       >
         {subtitle}
       </p>
