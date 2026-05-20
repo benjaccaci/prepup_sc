@@ -2,18 +2,20 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 
-const email = 'info@prepupsouthcoast.org';
+const email = 'stuart.titus@gmail.com';
+const phoneDisplay = '(978) 766-8733';
+const phoneHref = 'tel:+19787668733';
 ---
 
 <BaseLayout
   title="Contact Us"
-  description="Get in touch with Prep Up Southcoast. Reach us at info@prepupsouthcoast.org or visit us in New Bedford, MA."
+  description="Get in touch with Prep Up Southcoast. Reach us by email or phone, or visit us in New Bedford, MA."
 >
 
   <PageHeader
     title="Contact"
     titleAccent="us."
-    subtitle="Reach Prep Up by email, or visit us in New Bedford."
+    subtitle="Reach Prep Up by email or phone, or visit us in New Bedford."
   />
 
   <!-- Contact content -->
@@ -21,13 +23,25 @@ const email = 'info@prepupsouthcoast.org';
     <div class="container-narrow">
 
       <!-- Email as headline treatment -->
-      <div class="mb-16" data-reveal>
+      <div class="mb-12" data-reveal>
         <a
           href={`mailto:${email}`}
           class="group inline-block"
         >
           <p class="font-display text-3xl md:text-5xl lg:text-[3.5rem] font-medium text-navy-ink leading-tight tracking-tightest transition-colors duration-300 group-hover:text-gold-dark break-words">
             {email}
+          </p>
+        </a>
+      </div>
+
+      <!-- Phone, second headline treatment -->
+      <div class="mb-16" data-reveal data-reveal-delay="60">
+        <a
+          href={phoneHref}
+          class="group inline-block"
+        >
+          <p class="font-display text-2xl md:text-4xl lg:text-[3rem] font-light text-navy-ink leading-tight tracking-tightest transition-colors duration-300 group-hover:text-gold-dark">
+            {phoneDisplay}
           </p>
         </a>
       </div>

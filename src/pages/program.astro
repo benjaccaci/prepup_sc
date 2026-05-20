@@ -6,11 +6,27 @@ import YearCard from '../components/YearCard.astro';
 import Marquee from '../components/Marquee.astro';
 import StudentSpread from '../components/StudentSpread.astro';
 import CTAStrip from '../components/CTAStrip.astro';
+
+// Hrefs pre-encoded (spaces → %20) so they work cleanly in iframe `src` and anchor `href`
+const pdfs = [
+  {
+    title: 'College Guidance Workshops for Counselors',
+    href: '/prepup_materials/College%20Guidance%20Workshops%20for%20Counselors.pdf',
+  },
+  {
+    title: 'College Guidance Workshops for Students',
+    href: '/prepup_materials/College%20Guidance%20Workshops%20for%20Students.pdf',
+  },
+  {
+    title: 'Proposed Student Services in a Cohort Model',
+    href: '/prepup_materials/Student%20Services%20in%20Cohort%20Model.pdf',
+  },
+];
 ---
 
 <BaseLayout
-  title="Our Program"
-  description="Prep Up's four-year developmental roadmap guides Southcoast students from 9th grade through successful college matriculation using a cohort-based, process-driven approach."
+  title="Our Program & Services"
+  description="Prep Up's four-year developmental roadmap guides Southcoast students from 9th grade through college matriculation. Plus workshop curricula and service descriptions for students, counselors, and partners."
 >
 
   <PageHeader
@@ -160,6 +176,49 @@ import CTAStrip from '../components/CTAStrip.astro';
           ]}
         />
 
+      </div>
+    </div>
+  </section>
+
+  <!-- Workshops & Services: 3 PDFs rendered inline -->
+  <section class="bg-white border-t border-navy-ink/[0.08] py-24 md:py-32 px-6">
+    <div class="container-x-wide">
+
+      <div class="mb-14 md:mb-20" data-reveal>
+        <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-navy-ink leading-[0.95] tracking-tightest max-w-4xl">
+          Workshops &amp; <span class="italic font-light text-navy-ink/65">services.</span>
+        </h2>
+        <p class="mt-8 max-w-2xl text-navy-ink/70 text-base md:text-lg leading-[1.65] font-light">
+          Detailed program materials. Workshop curricula and service descriptions for students, counselors, and partners.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+        {pdfs.map((pdf, i) => (
+          <figure class="flex flex-col" data-reveal data-reveal-delay={i * 100}>
+
+            <!-- PDF inline viewer (8.5x11 letter aspect) -->
+            <div class="relative aspect-[17/22] rounded-lg overflow-hidden border-2 border-navy-ink/15 bg-paper-warm shadow-lg shadow-navy-ink/10 transition-colors duration-300 hover:border-gold/60">
+              <iframe
+                src={`${pdf.href}#view=FitH&toolbar=0&navpanes=0`}
+                title={pdf.title}
+                class="absolute inset-0 w-full h-full"
+                loading="lazy"
+              ></iframe>
+            </div>
+
+            <!-- Open full document link below -->
+            <a
+              href={pdf.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-navy-ink/75 hover:text-gold-dark transition-colors group self-start"
+            >
+              <span>Open full document</span>
+              <span class="transition-transform duration-300 group-hover:translate-x-1">↗</span>
+            </a>
+          </figure>
+        ))}
       </div>
     </div>
   </section>
