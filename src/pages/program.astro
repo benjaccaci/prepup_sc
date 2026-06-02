@@ -200,7 +200,7 @@ const pdfs = [
             <!-- PDF inline viewer (8.5x11 letter aspect) -->
             <div class="relative aspect-[17/22] rounded-lg overflow-hidden border-2 border-navy-ink/15 bg-paper-warm shadow-lg shadow-navy-ink/10 transition-colors duration-300 hover:border-gold/60">
               <iframe
-                src={`${pdf.href}#view=FitH&toolbar=0&navpanes=0`}
+                src={`${pdf.href}#view=FitH&zoom=page-width&toolbar=0&navpanes=0`}
                 title={pdf.title}
                 class="absolute inset-0 w-full h-full"
                 loading="lazy"

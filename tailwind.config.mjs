@@ -39,6 +39,7 @@ export default {
         'draw-line': 'drawLine 1.2s cubic-bezier(0.65, 0, 0.35, 1) 0.7s both',
         marquee: 'marquee 50s linear infinite',
         'marquee-fast': 'marquee 28s linear infinite',
+        'marquee-mobile': 'marquee 22s linear infinite',
         'fade-in': 'fadeIn 1s ease-out both',
       },
       keyframes: {
