@@ -37,9 +37,9 @@ export default {
       animation: {
         "fade-up": "fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both",
         "draw-line": "drawLine 1.2s cubic-bezier(0.65, 0, 0.35, 1) 0.7s both",
-        marquee: "marquee 50s linear infinite",
-        "marquee-fast": "marquee 28s linear infinite",
-        "marquee-mobile": "marquee 15s linear infinite",
+        marquee: "marquee 90s linear infinite",
+        "marquee-fast": "marquee 50s linear infinite",
+        "marquee-mobile": "marquee 40s linear infinite",
         "fade-in": "fadeIn 1s ease-out both",
       },
       keyframes: {

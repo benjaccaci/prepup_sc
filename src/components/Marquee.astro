@@ -37,7 +37,9 @@ const variants: Record<string, { bg: string; text: string; accent: string }> = {
 };
 const v = variants[variant];
 
-const repeated = [...items, ...items, ...items];
+// Two copies + a -50% translate gives a seamless loop. (Three copies + -50% would
+// shift by 1.5 copies' worth, which causes a visible "jump" when the animation resets.)
+const repeated = [...items, ...items];
 // Mobile gets ~2x speed (22s) so it doesn't feel like a slow-motion crawl on phones;
 // desktop keeps the original tempo. `fast` is unchanged.
 const speedClass =
@@ -47,7 +49,10 @@ const speedClass =
 ---
 
 <div class={`relative overflow-hidden ${v.bg} py-7 md:py-9`}>
-  <div class={`flex whitespace-nowrap will-change-transform ${speedClass}`}>
+  <!-- `w-max` is critical: without it the flex container sizes to the viewport, and translateX(-50%)
+       only shifts by half the viewport width (~one item) before resetting — causing a visible jump.
+       With w-max the container sizes to its content, so -50% = exactly one copy of items. -->
+  <div class={`flex w-max whitespace-nowrap will-change-transform ${speedClass}`}>
     {repeated.map(item => (
       <div class="flex items-center shrink-0 px-8 md:px-10">
         <span

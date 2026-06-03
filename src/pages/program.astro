@@ -7,19 +7,23 @@ import Marquee from '../components/Marquee.astro';
 import StudentSpread from '../components/StudentSpread.astro';
 import CTAStrip from '../components/CTAStrip.astro';
 
-// Hrefs pre-encoded (spaces → %20) so they work cleanly in iframe `src` and anchor `href`
+// Hrefs pre-encoded (spaces → %20) so they work cleanly in iframe `src` and anchor `href`.
+// `cover` is the first-page image used on mobile (where iframe PDF rendering is unreliable).
 const pdfs = [
   {
     title: 'College Guidance Workshops for Counselors',
     href: '/prepup_materials/College%20Guidance%20Workshops%20for%20Counselors.pdf',
+    cover: '/prepup_materials/counselors-cover.png',
   },
   {
     title: 'College Guidance Workshops for Students',
     href: '/prepup_materials/College%20Guidance%20Workshops%20for%20Students.pdf',
+    cover: '/prepup_materials/students-cover.png',
   },
   {
     title: 'Proposed Student Services in a Cohort Model',
     href: '/prepup_materials/Student%20Services%20in%20Cohort%20Model.pdf',
+    cover: '/prepup_materials/services-cover.png',
   },
 ];
 ---
@@ -197,12 +201,30 @@ const pdfs = [
         {pdfs.map((pdf, i) => (
           <figure class="flex flex-col" data-reveal data-reveal-delay={i * 100}>
 
-            <!-- PDF inline viewer (8.5x11 letter aspect) -->
+            <!-- PDF preview: cover image on mobile (iframe PDF rendering is unreliable on iOS Safari), -->
+            <!-- live iframe on desktop where it works well. Same wrapper styling for both. -->
             <div class="relative aspect-[17/22] rounded-lg overflow-hidden border-2 border-navy-ink/15 bg-paper-warm shadow-lg shadow-navy-ink/10 transition-colors duration-300 hover:border-gold/60">
+              <!-- Mobile: first-page image -->
+              <a
+                href={pdf.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="md:hidden absolute inset-0 block"
+                aria-label={`Open ${pdf.title} as PDF in a new tab`}
+              >
+                <img
+                  src={pdf.cover}
+                  alt={`${pdf.title} — first page preview`}
+                  class="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <!-- Desktop: inline PDF viewer -->
               <iframe
                 src={`${pdf.href}#view=FitH&zoom=page-width&toolbar=0&navpanes=0`}
                 title={pdf.title}
-                class="absolute inset-0 w-full h-full"
+                class="hidden md:block absolute inset-0 w-full h-full"
                 loading="lazy"
               ></iframe>
             </div>
