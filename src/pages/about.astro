@@ -89,7 +89,7 @@ import CTAStrip from '../components/CTAStrip.astro';
           initials="ST"
           photoSrc="/images/founders/stuart.jpg"
           photoAlt="Stuart Titus, co-founder of Prep Up"
-          bio="Stuart has worked in independent schools for over three decades. He was the Director of Admission at Pingree School in MA; the Associate Director of College Counseling at St. George[...]
+          bio="Stuart has worked in independent schools for over three decades. He was the Director of Admission at Pingree School in MA; the Associate Director of College Counseling at St. George's School in RI and Mercersburg Academy in PA; and served as an interim college counselor at Tabor Academy in MA and San Francisco University High School in CA. He was a three-year letter winner on the football team at Bates College, where he earned a degree in English Literature."
         />
         <FounderCard
           index={1}
@@ -97,7 +97,7 @@ import CTAStrip from '../components/CTAStrip.astro';
           initials="LJ"
           photoSrc="/images/founders/lucia.jpg"
           photoAlt="Lucia Jaccaci, co-founder of Prep Up"
-          bio="Lucia is an educator with 30 years of experience in independent school education. She has worked both as a classroom teacher and an administrator in the United States and in China.[...]
+          bio="Lucia is an educator with 30 years of experience in independent school education. She has worked both as a classroom teacher and an administrator in the United States and in China. She taught history at St. George's School in RI and Cincinnati Country Day School in OH. While at YK Pao School in Shanghai she helped develop the college counseling program. Upon moving to the Southcoast, Lucia taught citizenship classes at the Immigrant Assistance Center in New Bedford, and is currently volunteering at Our Sister's School and Damien's Food Pantry."
         />
       </div>
     </div>
@@ -111,27 +111,23 @@ import CTAStrip from '../components/CTAStrip.astro';
     secondaryCTA={{ label: 'Support our mission', href: '/support' }}
   />
 
+  <!-- Smooth-scroll to #meet-the-founders when navigating from the About dropdown.
+       Browsers auto-scroll to anchor on load, but we also smooth-scroll on hashchange
+       (when the user is already on /about and clicks the dropdown link). -->
   <script>
-    // Handle hash scroll on page load and navigation
     function scrollToHash() {
       const hash = window.location.hash;
-      if (hash) {
-        const element = document.querySelector(hash);
-        if (element) {
-          setTimeout(() => {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 100);
-        }
-      }
+      if (!hash) return;
+      const target = document.querySelector(hash);
+      if (!target) return;
+      // Small delay lets any reveal animations / fonts settle before measuring scroll position.
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
     }
 
-    // Scroll on initial page load
     document.addEventListener('DOMContentLoaded', scrollToHash);
-    
-    // Also handle hash changes
     window.addEventListener('hashchange', scrollToHash);
-    
-    // Astro navigation may not trigger DOMContentLoaded, so also try immediately
     scrollToHash();
   </script>
 

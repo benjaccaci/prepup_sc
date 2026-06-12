@@ -1,9 +1,21 @@
 ---
 const path = Astro.url.pathname;
 
-const links = [
+interface NavLink {
+  href: string;
+  label: string;
+  submenu?: { href: string; label: string }[];
+}
+
+const links: NavLink[] = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About', submenu: [{ href: '/about#meet-the-founders', label: 'Meet the Founders' }] },
+  {
+    href: '/about',
+    label: 'About',
+    submenu: [
+      { href: '/about#meet-the-founders', label: 'Meet the Founders' },
+    ],
+  },
   { href: '/program', label: 'Program & Services' },
   { href: '/support', label: 'Support' },
   { href: '/contact', label: 'Contact' },
@@ -11,7 +23,9 @@ const links = [
 
 function isActive(href: string): boolean {
   if (href === '/') return path === '/' || path === '';
-  return path.startsWith(href);
+  // Strip hash before matching so dropdown items don't break the active state
+  const cleanHref = href.split('#')[0];
+  return path.startsWith(cleanHref);
 }
 ---
 
@@ -27,37 +41,66 @@ function isActive(href: string): boolean {
       <!-- Desktop nav -->
       <nav class="hidden md:flex items-center gap-9" aria-label="Main navigation">
         {links.map((link, i) => (
-          <div class="relative group">
+          <div class="relative group/nav">
+
+            <!-- Top-level link. Uses the named group/nav so dropdown + underline + number color
+                 stay in sync as a single unit even when the user mouses down into the submenu. -->
             <a
               href={link.href}
-              class={`group relative inline-flex items-center gap-1.5 text-sm tracking-wide transition-colors duration-300 hover:text-gold-dark ${
+              class={`relative inline-flex items-center gap-1.5 text-sm tracking-wide transition-colors duration-300 group-hover/nav:text-gold-dark ${
                 isActive(link.href) ? 'text-navy-ink font-medium' : 'text-navy-ink/70'
               }`}
             >
-              <span class="font-mono text-[10px] text-navy-ink/30 group-hover:text-gold-dark transition-colors">
+              <span class="font-mono text-[10px] text-navy-ink/30 group-hover/nav:text-gold-dark transition-colors duration-300">
                 0{i + 1}
               </span>
               <span class="relative pb-1">
                 {link.label}
                 <span
                   class={`absolute left-0 bottom-0 h-px bg-gold transition-all duration-500 ease-out ${
-                    isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                    isActive(link.href) ? 'w-full' : 'w-0 group-hover/nav:w-full'
                   }`}
                 ></span>
               </span>
+              {link.submenu && (
+                <svg
+                  class="w-2.5 h-2.5 ml-0.5 text-navy-ink/40 group-hover/nav:text-gold-dark group-hover/nav:rotate-180 transition-all duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" d="M19 9l-7 7-7-7"/>
+                </svg>
+              )}
             </a>
-            
+
+            <!-- Dropdown. opacity + visibility + pointer-events all flip on group-hover; the wrapper's
+                 pt-3 keeps a hoverable bridge so the menu doesn't snap shut while the mouse traverses
+                 the gap between the link and the card. -->
             {link.submenu && (
-              <div class="absolute left-0 top-full pt-2 hidden group-hover:block z-50">
-                <div class="bg-white border border-navy/10 rounded-lg shadow-lg overflow-hidden">
-                  {link.submenu.map((item) => (
-                    <a
-                      href={item.href}
-                      class="block px-4 py-3 text-sm text-navy-ink/70 hover:text-navy-ink hover:bg-navy/5 transition-colors whitespace-nowrap"
-                    >
-                      {item.label}
-                    </a>
-                  ))}
+              <div
+                class="absolute left-1/2 -translate-x-1/2 top-full pt-3 z-50 min-w-[16rem] opacity-0 invisible pointer-events-none group-hover/nav:opacity-100 group-hover/nav:visible group-hover/nav:pointer-events-auto transition-all duration-200 ease-out"
+                role="menu"
+              >
+                <div class="bg-white border border-navy-ink/10 rounded-xl shadow-2xl shadow-navy-ink/15 overflow-hidden">
+                  <!-- Decorative gold gradient rule at top, matches editorial dividers used elsewhere -->
+                  <div class="h-px bg-gradient-to-r from-transparent via-gold/70 to-transparent"></div>
+
+                  <ul class="py-2">
+                    {link.submenu.map((item) => (
+                      <li>
+                        <a
+                          href={item.href}
+                          role="menuitem"
+                          class="group/item flex items-center justify-between gap-6 px-5 py-3 font-display text-[15px] text-navy-ink/85 hover:text-gold-dark hover:bg-paper-warm/50 transition-colors duration-200"
+                        >
+                          <span>{item.label}</span>
+                          <span class="text-gold-dark opacity-0 -translate-x-1 transition-all duration-300 ease-out group-hover/item:opacity-100 group-hover/item:translate-x-0">→</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             )}
@@ -102,16 +145,18 @@ function isActive(href: string): boolean {
               <span class="font-display tracking-tight text-lg">{link.label}</span>
             </a>
             {link.submenu && (
-              <div class="pl-12 py-2 bg-navy/2">
+              <ul class="ml-12 mb-2 border-l-2 border-gold/40 pl-4 space-y-1">
                 {link.submenu.map((item) => (
-                  <a
-                    href={item.href}
-                    class="block py-2 text-sm text-navy-ink/70 hover:text-navy-ink hover:text-gold-dark transition-colors"
-                  >
-                    {item.label}
-                  </a>
+                  <li>
+                    <a
+                      href={item.href}
+                      class="block py-2 font-display text-[15px] text-navy-ink/75 hover:text-gold-dark transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
                 ))}
-              </div>
+              </ul>
             )}
           </div>
         ))}
