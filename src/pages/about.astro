@@ -74,7 +74,7 @@ import CTAStrip from '../components/CTAStrip.astro';
   </section>
 
   <!-- Founders section -->
-  <section id="meet-the-founders" class="bg-paper-warm py-28 md:py-40 px-6">
+  <section id="meet-the-founders" class="bg-paper-warm py-28 md:py-40 px-6 scroll-mt-32">
     <div class="container-x-wide">
       <div class="mb-20" data-reveal>
         <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-navy-ink leading-[1.05] tracking-tightest max-w-5xl">
@@ -110,5 +110,29 @@ import CTAStrip from '../components/CTAStrip.astro';
     primaryCTA={{ label: 'Contact Us', href: '/contact' }}
     secondaryCTA={{ label: 'Support our mission', href: '/support' }}
   />
+
+  <script>
+    // Handle hash scroll on page load and navigation
+    function scrollToHash() {
+      const hash = window.location.hash;
+      if (hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        }
+      }
+    }
+
+    // Scroll on initial page load
+    document.addEventListener('DOMContentLoaded', scrollToHash);
+    
+    // Also handle hash changes
+    window.addEventListener('hashchange', scrollToHash);
+    
+    // Astro navigation may not trigger DOMContentLoaded, so also try immediately
+    scrollToHash();
+  </script>
 
 </BaseLayout>
