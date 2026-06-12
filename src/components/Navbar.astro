@@ -3,7 +3,7 @@ const path = Astro.url.pathname;
 
 const links = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
+  { href: '/about', label: 'About', submenu: [{ href: '/about#meet-the-founders', label: 'Meet the Founders' }] },
   { href: '/program', label: 'Program & Services' },
   { href: '/support', label: 'Support' },
   { href: '/contact', label: 'Contact' },
@@ -27,24 +27,41 @@ function isActive(href: string): boolean {
       <!-- Desktop nav -->
       <nav class="hidden md:flex items-center gap-9" aria-label="Main navigation">
         {links.map((link, i) => (
-          <a
-            href={link.href}
-            class={`group relative inline-flex items-center gap-1.5 text-sm tracking-wide transition-colors duration-300 hover:text-gold-dark ${
-              isActive(link.href) ? 'text-navy-ink font-medium' : 'text-navy-ink/70'
-            }`}
-          >
-            <span class="font-mono text-[10px] text-navy-ink/30 group-hover:text-gold-dark transition-colors">
-              0{i + 1}
-            </span>
-            <span class="relative pb-1">
-              {link.label}
-              <span
-                class={`absolute left-0 bottom-0 h-px bg-gold transition-all duration-500 ease-out ${
-                  isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
-                }`}
-              ></span>
-            </span>
-          </a>
+          <div class="relative group">
+            <a
+              href={link.href}
+              class={`group relative inline-flex items-center gap-1.5 text-sm tracking-wide transition-colors duration-300 hover:text-gold-dark ${
+                isActive(link.href) ? 'text-navy-ink font-medium' : 'text-navy-ink/70'
+              }`}
+            >
+              <span class="font-mono text-[10px] text-navy-ink/30 group-hover:text-gold-dark transition-colors">
+                0{i + 1}
+              </span>
+              <span class="relative pb-1">
+                {link.label}
+                <span
+                  class={`absolute left-0 bottom-0 h-px bg-gold transition-all duration-500 ease-out ${
+                    isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}
+                ></span>
+              </span>
+            </a>
+            
+            {link.submenu && (
+              <div class="absolute left-0 top-full pt-2 hidden group-hover:block z-50">
+                <div class="bg-white border border-navy/10 rounded-lg shadow-lg overflow-hidden">
+                  {link.submenu.map((item) => (
+                    <a
+                      href={item.href}
+                      class="block px-4 py-3 text-sm text-navy-ink/70 hover:text-navy-ink hover:bg-navy/5 transition-colors whitespace-nowrap"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         ))}
       </nav>
 
@@ -74,15 +91,29 @@ function isActive(href: string): boolean {
     >
       <nav class="flex flex-col py-4" aria-label="Mobile navigation links">
         {links.map((link, i) => (
-          <a
-            href={link.href}
-            class={`px-3 py-3.5 text-base flex items-center gap-4 transition-colors ${
-              isActive(link.href) ? 'text-navy-ink font-medium' : 'text-navy-ink/70 hover:text-gold-dark'
-            }`}
-          >
-            <span class="font-mono text-[11px] text-navy-ink/40">0{i + 1}</span>
-            <span class="font-display tracking-tight text-lg">{link.label}</span>
-          </a>
+          <div>
+            <a
+              href={link.href}
+              class={`px-3 py-3.5 text-base flex items-center gap-4 transition-colors ${
+                isActive(link.href) ? 'text-navy-ink font-medium' : 'text-navy-ink/70 hover:text-gold-dark'
+              }`}
+            >
+              <span class="font-mono text-[11px] text-navy-ink/40">0{i + 1}</span>
+              <span class="font-display tracking-tight text-lg">{link.label}</span>
+            </a>
+            {link.submenu && (
+              <div class="pl-12 py-2 bg-navy/2">
+                {link.submenu.map((item) => (
+                  <a
+                    href={item.href}
+                    class="block py-2 text-sm text-navy-ink/70 hover:text-navy-ink hover:text-gold-dark transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
         ))}
       </nav>
     </div>
